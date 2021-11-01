@@ -1,13 +1,13 @@
 import React from "react"
 
 
-SignUpPage = () =>
+ProfilePage = () =>
 {
     return(
         <div>
-            SignUpPage
+            ProfilePage
         </div>
     )
 }
 
-export default SignUpPage
+export default ProfilePage
