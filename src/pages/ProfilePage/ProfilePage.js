@@ -1,11 +1,13 @@
 import React from "react"
+import EditCadastro from './EditCadastro'
+import EditAddress from './EditAddress'
 
-
-ProfilePage = () =>
+const ProfilePage = () =>
 {
     return(
         <div>
-            ProfilePage
+            <EditCadastro/>
+            <EditAddress/>
         </div>
     )
 }
