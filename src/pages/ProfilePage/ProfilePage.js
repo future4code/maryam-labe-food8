@@ -1,7 +1,7 @@
 import React from "react"
 
 
-ProfilePage = () =>
+const ProfilePage = () =>
 {
     return(
         <div>

@@ -1,7 +1,7 @@
 import React from "react"
 
 
-HomePage = () =>
+const HomePage = () =>
 {
     return(
         <div>
