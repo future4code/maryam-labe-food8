@@ -1,7 +1,7 @@
 import React from "react"
 
 
-SearchRestaurantsPage = () =>
+const SearchRestaurantsPage = () =>
 {
     return(
         <div>

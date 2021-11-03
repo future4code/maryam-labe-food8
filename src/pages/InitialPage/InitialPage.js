@@ -1,7 +1,7 @@
 import React from "react"
 
 
-InitialPage = () =>
+const InitialPage = () =>
 {
     return(
         <div>

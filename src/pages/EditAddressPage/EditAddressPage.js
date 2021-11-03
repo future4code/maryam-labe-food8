@@ -1,7 +1,7 @@
 import React from "react"
 
 
-EditAddressPage = () =>
+const EditAddressPage = () =>
 {
     return(
         <div>
