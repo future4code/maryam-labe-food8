@@ -1,14 +1,23 @@
 import React from "react"
-import EditCadastro from './EditCadastro'
-import EditAddress from './EditAddress'
+import HistoryProfile from "./HistoryProfile"
+import GetProfile from './GetProfile'
+import {useHistory} from 'react-router-dom'
+import {goToAddress, goToPerfil} from '../../routes/cordinator'
 
+const ProfilePage = () =>{
+    const history = useHistory()
+}
 
-const ProfilePage = () =>
-{
+const ProfilePage = () =>{
+
     return(
         <div>
-            <EditCadastro/>
-            <EditAddress/>
+            <GetProfile/>
+            <button onClick={() =>goToAddress(history)}>Editar Endereço</button>
+            {/* <GetAddress/> */}
+            <button onClick={() =>goToPerfil(history)}>Editar Perfil</button>
+            {/* <EditAddress/> */}
+            <HistoryProfile/>
         </div>
     )
 }

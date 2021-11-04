@@ -10,7 +10,6 @@ import { goToSignUp } from "../../routes/cordinator";
 // import { goToSignUp } from '../../routes/cordinator'
 
 
-
 const LoginPage = () => {
     const [form, onChange, clear] = useForm({email:"", password: ""});
 

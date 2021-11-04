@@ -6,9 +6,15 @@ const UseForm = (initialState) => {
 
     const [form, setForm] = useState(initialState)
 
-    const handleInputChange = (event) => {
+    const handleInputChange = (event, mascara) => {
         const {value, name} = event.target
-        setForm({...form, [name]:value})
+        if(mascara){
+            const valorFormatado = mascara(value)
+            setForm({...form, [name]: valorFormatado})
+        }else{
+
+            setForm({...form, [name]:value})
+        }
     }
 
     const clear = () => {

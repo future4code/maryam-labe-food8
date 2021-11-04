@@ -5,6 +5,7 @@ import { useHistory } from "react-router";
 import FooterMenu from "../../components/FooterMenu";
 
 
+
 const CartBox = styled.div`
 p{
 
@@ -210,6 +211,7 @@ const Button = styled.div`
 
 const CartPage = () =>
 {   const history= useHistory();    
+
     return(
         <CartBox>
             <TitleBox>

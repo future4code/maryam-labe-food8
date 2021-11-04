@@ -23,12 +23,11 @@ export const goToLogin= (history) =>
     history.push("/login")
 }
 
-export const goToProfile = (history) =>
-{
-    history.push(`/profile/`)
+export const goToProfile = (history) =>{
+    history.push(`/profile`)
 }
 
-export const goToRestaurante = (history) =>
+export const goToRestaurante = (history, id) =>
 {
     history.push(`/restaurant/`)
 }
@@ -36,4 +35,14 @@ export const goToRestaurante = (history) =>
 export const goToSearch = (history) =>
 {
     history.push("/search")
+}
+
+export const goToAddress = (history) =>
+{
+    history.push("/address")
+}
+
+export const goToPerfil = (history) =>
+{
+    history.push("/perfil")
 }
