@@ -2,7 +2,7 @@ import React from 'react'
 import useForm from '../../hooks/useForm'
 import {BASE_URL} from '../../constants/urls'
 import axios from 'axios'
-import InputMask from 'react-input-mask'
+
 import {EditarCadastro, Input, Rectangle, Button, Rectangle_Button} from './styled'
 
 const EditCadastro = () =>{

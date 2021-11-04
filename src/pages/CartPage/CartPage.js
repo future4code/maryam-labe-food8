@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {goToSignUp} from "../../routes/cordinator"
 import { useHistory } from "react-router";
+import FooterMenu from "../../components/FooterMenu";
 
 
 const CartBox = styled.div`
@@ -241,7 +242,7 @@ const CartPage = () =>
                 
             </PaymentBox>
             <Button onClick= {() => goToSignUp(history)}><p>Confirmar</p></Button>
-            
+            <FooterMenu/>
         </CartBox>
     )
 }
