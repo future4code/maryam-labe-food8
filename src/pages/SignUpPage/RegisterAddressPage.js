@@ -1,10 +1,11 @@
 import React from "react"
 import useForm from '../../hooks/useForm';
 import Back from '../../assets/back.png'
-import {PageContainer, ButtonContainer, TextStyle} from './styled'
+import {PageContainer, ButtonContainer, TextStyle, BackButton} from './styled'
 import { TextField, Button } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
+import { goToSearch } from "../../routes/cordinator";
 
 
 const RegisterAddressPage = () => {
@@ -85,7 +86,7 @@ const RegisterAddressPage = () => {
           />
 
               
-          <ButtonContainer color={'primary'} variant={'contained'}type={"submit"} fullWidth> Salve </ButtonContainer>
+          <Button color={'primary'} variant={'contained'}type={"submit"} fullWidth> Salve </Button>
         </form>
  
       </PageContainer>

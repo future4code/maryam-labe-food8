@@ -1,4 +1,4 @@
-import { Restaurant } from "@material-ui/icons";
+// import { Restaurant } from "@material-ui/icons";
 import React from "react";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import CartPage from "../pages/CartPage/CartPage"
@@ -8,7 +8,7 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import SearchRestaurantsPage from "../pages/SearchRestaurantsPage/SearchRestaurantsPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
-
+import RegisterAddressPage from "../pages/SignUpPage/RegisterAddressPage";
 
 
 const Router = () =>
@@ -29,7 +29,7 @@ const Router = () =>
                     <SignUpPage/>
                 </Route>
                 <Route exact path="/adress">
-                    <RegisterAdressPage/>
+                    <RegisterAddressPage/>
                 </Route>
 
                 <Route exact path="/login">

@@ -13,7 +13,7 @@ height: 7vh;
 display: flex;
 `
 const FooterButton = styled.button`
-border:0px;
+border: 0px;
 background-color: white;
 width: 33.3vw;
 
@@ -29,8 +29,7 @@ const FooterMenu = () =>
         <FooterButton onClick= {()=>goToProfile(history)}><img src = {avatarImg}/></FooterButton>
     </FooterBox>
         
-    )
-        
+    )        
 }
 
 export default FooterMenu
