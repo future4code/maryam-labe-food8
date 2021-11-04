@@ -7,10 +7,8 @@ import { TextField } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
 import { goToSignUp, goToHome } from "../../routes/cordinator";
-import { useUnprotectedPage } from '../../hooks/useUnprotectedPage'
 
 const LoginPage = () => {
-   useUnprotectedPage()
     const [form, onChange, clear] = useForm({email:"", password: ""});
 
     const history = useHistory()
