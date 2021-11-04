@@ -18,7 +18,8 @@ const Router = () =>
     return(
         <BrowserRouter>
             <Switch>
-                <Route exact path="/CartPage">
+
+                <Route exact path="/cart">
                     <CartPage/>
                 </Route>
 
@@ -26,27 +27,38 @@ const Router = () =>
                     <HomePage/>
                 </Route>
 
-                <Route exact path="/SignUp">
+                <Route exact path="/signUp">
                     <SignUpPage/>
                 </Route>
-                <Route exact path="/Login">
+
+                <Route exact path="/login">
                     <LoginPage/>
                 </Route>
-                <Route exact path= "/profile">
-                    <ProfilePage/>
-                </Route>
+
                 <Route exact path= "/address">
                     <EditAddressPage/>
                 </Route>
+
                 <Route exact path= "/perfil">
                     <EditInfoPage/>
                 </Route>
+
                 <Route exact path= "/restaurant/:id">
+                     <RestaurantPage/>
+                </Route>
+
+                <Route exact path= "/profile/">
+                    <ProfilePage/>
+                </Route>
+
+                <Route exact path= "/restaurant/">
                     <RestaurantPage/>
                 </Route>
-                <Route exact path= "/Search">
+
+                <Route exact path= "/search">
                     <SearchRestaurantsPage/>
                 </Route>
+
                 <Route exact default>
                     <div>Page não encontrada</div>
                 </Route>

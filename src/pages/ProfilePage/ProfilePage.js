@@ -6,6 +6,9 @@ import {goToAddress, goToPerfil} from '../../routes/cordinator'
 
 const ProfilePage = () =>{
     const history = useHistory()
+}
+
+const ProfilePage = () =>{
 
     return(
         <div>

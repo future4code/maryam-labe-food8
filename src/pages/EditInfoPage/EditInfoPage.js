@@ -6,6 +6,7 @@ import {EditarCadastro, StyledButton, Input, Rectangle, ContainerButton} from '.
 
 const EditInfoPage = () =>{
 
+
     const [form, onChange, clear] = useForm({name: '', email: '', cpf: ''})
 
 
@@ -79,8 +80,6 @@ const EditInfoPage = () =>{
             </form>
         </EditarCadastro>
     )
-
-
 
 }
 export default EditInfoPage

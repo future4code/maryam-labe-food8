@@ -21,15 +21,14 @@ const addAdress = () =>{
             console.log(error.message)
         })
 
+    }    
 
-}
-
-const  onSubmitForm = (event) =>{
+    const  onSubmitForm = (event) =>{
     event.preventDefault()
     addAdress(form)
-}
+    }
 
-return (
+    return (
     <EditarCadastro>
         <form onSubmit={onSubmitForm}>
             <Rectangle>
@@ -105,7 +104,7 @@ return (
             </ContainerButton>
         </form>
     </EditarCadastro>
-)
+    )
 
 }
 export default EditAddressPage
