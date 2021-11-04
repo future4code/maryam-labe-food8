@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useLayoutEffect } from 'react';
-import { goToHome } from '../routes/coordinator'
+import { goToHome } from '../routes/cordinator'
 
 const useUnprotectedPage = () => {
     const history = useHistory()
