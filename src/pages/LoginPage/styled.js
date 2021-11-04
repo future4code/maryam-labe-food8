@@ -60,7 +60,8 @@ width: 328px;
   background-color: #5cb646;
   width: 296px;
   height: 18px;
-  font-family: Roboto;
+  // font-family: Roboto;
+  font-family: unset;
   font-size: 16px;
   font-weight: normal;
   font-stretch: normal;
@@ -70,3 +71,10 @@ width: 328px;
   text-align: center;
   color: var(--black);
 `
+export const Button = styled.button`
+Background-color: white;
+border: 0px white;
+cursor: pointer;
+font-family: unset;
+font-size: 16px;
+` 
