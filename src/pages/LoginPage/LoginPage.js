@@ -2,41 +2,43 @@ import React from "react"
 import useForm from '../../hooks/useForm';
 import { useHistory } from "react-router-dom";
 import LogoFood from '../../assets/logo-future-eats.png'
-import {PageContainer, ButtonContainer, Logo, TextStyle} from './styled'
-import { TextField, Button } from "@material-ui/core";
+import {PageContainer, ButtonContainer, Logo, TextStyle, Button} from './styled'
+import { TextField } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
-import { goToSignUp } from "../../routes/cordinator";
-// import { goToSignUp } from '../../routes/cordinator'
-
+import { goToSignUp, goToHome } from "../../routes/cordinator";
+import { useUnprotectedPage } from '../../hooks/useUnprotectedPage'
 
 const LoginPage = () => {
+   useUnprotectedPage()
     const [form, onChange, clear] = useForm({email:"", password: ""});
 
-    const history = useHistory ()
-    
+    const history = useHistory()
+  
   const onSubmitForm = (event) => {
-    // console.log(form)
     event.preventDefault()
-    login()
+    login(form, clear, history)
+    console.log(form)
   }
 
-  // const userHasAdress = (hasAdress) = () => {
-  //   if (hasAdress === true){
-  //     return login()
-  //   } if (hasAdress = false){
-  //     return goToSignUp(history)
-  //   }
-  // }
 
   const login = (form, clear, history) => {
     axios.post(`${BASE_URL}/login`, form)
-    .then((res) => console.log(res))
-      // localStorage.setItem("token", res.data.token)
-      // clear()
-      // goToSignUp(history)
-    // })
-    .catch((err) => console.log(err.response.data.message))
+    .then((res) => {
+      console.log(res.data)
+      localStorage.setItem("token", res.data.token)
+      clear()
+      goToHome(history)
+      checkAdress()
+    })
+    .catch((err) => console.log(err))
+  }
+
+  const checkAdress = (hasAdress) => {
+    if(hasAdress === true){
+    return login()
+    }if (hasAdress === false)
+    return goToSignUp()
   }
 
     return (
@@ -57,7 +59,7 @@ const LoginPage = () => {
           />
             <br/>
           <TextField
-                placeholder = "Minimun of 6 characters"
+                placeholder = "Minimum of 6 characters"
                 name={"password"}
                 value = {form.password}
                 onChange = {onChange}
@@ -80,7 +82,6 @@ const LoginPage = () => {
         >
           Don't have an account? Click here.
         </Button>
-        {/* </InputContainer> */}
       </PageContainer>
     );
   }
