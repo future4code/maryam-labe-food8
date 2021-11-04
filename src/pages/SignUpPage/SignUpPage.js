@@ -7,26 +7,29 @@ import {PageContainer, ButtonContainer, Logo, TextStyle} from './styled'
 import { TextField, Button } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
-import { goToLogin } from "../../routes/cordinator";
+import { goToRegisterAdress } from "../../routes/cordinator";
 import InputMask from 'react-input-mask' 
 
 
-const LoginPage = () => {
+const SignUpPage = () => {
     const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: "", password: ""});
 
     const history = useHistory ()
     
   const onSubmitForm = (event) => {
     event.preventDefault()
-    SignUp()
+    signUp()
   }
 
-  const SignUp = (form, clear, history) => {
-    axios.post(`${BASE_URL}/signUp`, form)
+  const signUp = (form, clear, history) => {
+    
+    axios.post(`${BASE_URL}/signUp`, form, {
+      headers: {Authorization: localStorage.setItem("token", res.data.token)
+    }})
     .then((res) => console.log(res))
       // localStorage.setItem("token", res.data.token)
       // clear()
-      // goToSignUp(history)
+      // goToRegisterAdress(history)
     // })
     .catch((err) => console.log(err.response.data.message))
   }
@@ -93,7 +96,7 @@ const LoginPage = () => {
           />
 
               
-          <ButtonContainer type={"submit"}> Create Account </ButtonContainer>
+          <ButtonContainer color={'primary'} variant={'contained'}type={"submit"} fullWidth> Create Account </ButtonContainer>
         </form>
  
       </PageContainer>

@@ -16,7 +16,7 @@ const Router = () =>
     return(
         <BrowserRouter>
             <Switch>
-                <Route exact path="/CartPage">
+                <Route exact path="/cartPage">
                     <CartPage/>
                 </Route>
 
@@ -24,10 +24,14 @@ const Router = () =>
                     <HomePage/>
                 </Route>
 
-                <Route exact path="/SignUp">
+                <Route exact path="/signUp">
                     <SignUpPage/>
                 </Route>
-                <Route exact path="/Login">
+                <Route exact path="/adress">
+                    <RegisterAdressPage/>
+                </Route>
+
+                <Route exact path="/login">
                     <LoginPage/>
                 </Route>
                 <Route exact path= "/profile/:id">
@@ -36,7 +40,7 @@ const Router = () =>
                 <Route exact path= "/restaurant/:id">
                     <RestaurantPage/>
                 </Route>
-                <Route exact path= "/Search">
+                <Route exact path= "/search">
                     <SearchRestaurantsPage/>
                 </Route>
 
