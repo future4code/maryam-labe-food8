@@ -27,7 +27,6 @@ const SignUpPage = () => {
       headers: {Authorization: localStorage.setItem("token", res.data.token)
     }})
     .then((res) => console.log(res))
-      // localStorage.setItem("token", res.data.token)
       // clear()
       // goToRegisterAdress(history)
     // })
@@ -96,7 +95,7 @@ const SignUpPage = () => {
           />
 
               
-          <ButtonContainer color={'primary'} variant={'contained'}type={"submit"} fullWidth> Create Account </ButtonContainer>
+          <Button color={'primary'} variant={'contained'}type={"submit"} fullWidth> Create Account </Button>
         </form>
  
       </PageContainer>
