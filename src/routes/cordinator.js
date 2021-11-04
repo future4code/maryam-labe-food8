@@ -13,6 +13,11 @@ export const goToSignUp = (history) =>
     history.push("/signUp")
 }
 
+export const goToRegisterAdress = (history) =>
+{
+    history.push("/adress")
+}
+
 export const goToLogin= (history) =>
 {
     history.push("/login")
