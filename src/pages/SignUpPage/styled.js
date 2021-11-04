@@ -53,7 +53,7 @@ text-align: center;
 color: black;
 `
 export const ButtonStyle = styled.button`
-width: 328px;
+  width: 328px;
   height: 42px;
   padding: 12px 16px;
   border-radius: 2px;
