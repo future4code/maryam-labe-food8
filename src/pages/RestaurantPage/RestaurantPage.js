@@ -1,7 +1,7 @@
 import React from "react"
 
 
-RestaurantPage = () =>
+const RestaurantPage = () =>
 {
     return(
         <div>

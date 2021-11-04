@@ -1,10 +1,10 @@
 import React from 'react';
-import ProfilePage from './pages/ProfilePage/ProfilePage'
+import Router from './routes/Router'
 
 const App = () =>{
   return(
     <div>
-      <ProfilePage/>
+      <Router/>
     </div>
   )
 }

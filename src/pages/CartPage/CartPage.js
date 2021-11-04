@@ -1,7 +1,7 @@
 import React from "react"
 
 
-CartPage = () =>
+const CartPage = () =>
 {
     return(
         <div>
