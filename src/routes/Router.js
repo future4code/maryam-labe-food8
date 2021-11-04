@@ -1,4 +1,4 @@
-import { Restaurant } from "@material-ui/icons";
+// import { Restaurant } from "@material-ui/icons";
 import React from "react";
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import CartPage from "../pages/CartPage/CartPage"
@@ -8,6 +8,8 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import RestaurantPage from "../pages/RestaurantPage/RestaurantPage";
 import SearchRestaurantsPage from "../pages/SearchRestaurantsPage/SearchRestaurantsPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import EditAddressPage from '../pages/EditAddressPage/EditAddressPage'
+import EditInfoPage from '../pages/EditInfoPage/EditInfoPage'
 
 
 
@@ -16,7 +18,8 @@ const Router = () =>
     return(
         <BrowserRouter>
             <Switch>
-                <Route exact path="/CartPage">
+
+                <Route exact path="/cart">
                     <CartPage/>
                 </Route>
 
@@ -24,20 +27,40 @@ const Router = () =>
                     <HomePage/>
                 </Route>
 
-                <Route exact path="/SignUp">
+                <Route exact path="/signUp">
                     <SignUpPage/>
                 </Route>
-                <Route exact path="/Login">
+
+                <Route exact path="/login">
                     <LoginPage/>
                 </Route>
-                <Route exact path= "/profile/:id">
+
+                <Route exact path= "/address">
+                    <EditAddressPage/>
+                </Route>
+
+                <Route exact path= "/perfil">
+                    <EditInfoPage/>
+                </Route>
+
+                <Route exact path= "/restaurant/:id">
+                     <RestaurantPage/>
+                </Route>
+
+                <Route exact path= "/profile/">
                     <ProfilePage/>
                 </Route>
-                <Route exact path= "/restaurant/:id">
+
+                <Route exact path= "/restaurant/">
                     <RestaurantPage/>
                 </Route>
-                <Route exact path= "/Search">
+
+                <Route exact path= "/search">
                     <SearchRestaurantsPage/>
+                </Route>
+
+                <Route exact default>
+                    <div>Page não encontrada</div>
                 </Route>
 
             </Switch>

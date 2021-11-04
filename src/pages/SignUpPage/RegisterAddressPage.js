@@ -1,112 +1,96 @@
-import React from 'react'
-import useForm from '../../hooks/useForm'
-import {BASE_URL} from '../../constants/urls'
-import axios from 'axios'
-import {EditarCadastro, Input, Rectangle, Button, Rectangle_Button} from './styled'
+import React from "react"
+import useForm from '../../hooks/useForm';
+import Back from '../../assets/back.png'
+import {PageContainer, ButtonContainer, TextStyle} from './styled'
+import { TextField, Button } from "@material-ui/core";
+import axios from 'axios';
+import { BASE_URL } from '../../constants/urls'
 
-const EditAddress = () => {
 
-const [form, onChange, clear] = useForm({street: '', number: '', neighbourhood: '', city: '', state: '', complement: ''})
+const RegisterAddressPage = () => {
+    const [form, onChange, clear] = useForm({street: '', number: '', neighbourhood: '', city: '', state: '', complement: ''});
 
-const addAdress = () =>{
-    console.log(form)
+  const registerAddress = (form, clear, history) =>{
     console.log(localStorage.getItem("token"))
     axios.put(`${BASE_URL}/address`, form, {
         headers: {'auth': localStorage.getItem("token")}})
         .then((res)=>{
             console.log(res)
             clear()
+            goToSearch(history)
         })
         .catch((error)=>{
             console.log(error.message)
         })
 
+        const onSubmitForm = (event) => {
+          event.preventDefault()
+          registerAddress()
+        }
 
-}
 
-const  onSubmitForm = (event) =>{
-    event.preventDefault()
-    addAdress(form)
-}
-
-return (
-    <EditarCadastro>
+    return (
+      <PageContainer>
+        <BackButton src ={Back}/>
+        <TextStyle> Cadastrar </TextStyle>
         <form onSubmit={onSubmitForm}>
-            <Rectangle>
-           <Input
+        <TextField
                 type={"text"}
                 name={"street"}
                 value={form.street}
                 onChange={onChange}
                  placeholder="Endereço"
                 required
-            />
-            </Rectangle>
-
-            <Rectangle>
-            <Input
+          />
+          <TextField
                 type={"number"}
                 placeholder="N°"
                 name={"number"}
                 value={form.number}
                 onChange={onChange}
                 required
-            />
-            </Rectangle>
-
-            <Rectangle>
-            <Input 
+          />
+            <TextField
                 type={"text"}
                 name={"neighbourhood"}
                 value={form.neighbourhood}
                 onChange={onChange}
                 placeholder="Bairro"
                 required
-            />
-            </Rectangle>
-
-            <Rectangle>
-           <Input
+          />
+            <TextField
                 type={"text"}
                 name={"city"}
                 value={form.city}
                 onChange={onChange}
                 placeholder="Cidade"
                 required
-            />
-            </Rectangle>
+          />
 
-            <Rectangle>
-           <Input
+          <TextField
                 type={"text"}
                 name={"state"}
                 value={form.state}
                 onChange={onChange}
                 placeholder="Estado"
                 required
-            />
-            </Rectangle>
-
-            <Rectangle>
-           <Input
+          />
+          <TextField
                 type={"text"}
                 name={"complement"}
                 value={form.complement}
                 onChange={onChange}
                 placeholder="Complemento"
                 required
-            />
-            </Rectangle>
+          />
 
-            <Rectangle_Button>
-            <Button
-                type={"submit"}>
-                    Salvar
-                </Button>
-            </Rectangle_Button>
+              
+          <ButtonContainer color={'primary'} variant={'contained'}type={"submit"} fullWidth> Salve </ButtonContainer>
         </form>
-    </EditarCadastro>
-)
-
+ 
+      </PageContainer>
+    );
 }
-export default EditAddress
+}
+  
+export default RegisterAddressPage
