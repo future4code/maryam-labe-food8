@@ -16,7 +16,8 @@ const Router = () =>
     return(
         <BrowserRouter>
             <Switch>
-                <Route exact path="/cartPage">
+
+                <Route exact path="/cart">
                     <CartPage/>
                 </Route>
 
