@@ -1,7 +1,7 @@
 import React from "react"
 
 
-EditInfoPage = () =>
+const EditInfoPage = () =>
 {
     return(
         <div>

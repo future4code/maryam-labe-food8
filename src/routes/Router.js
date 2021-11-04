@@ -34,10 +34,10 @@ const Router = () =>
                 <Route exact path="/login">
                     <LoginPage/>
                 </Route>
-                <Route exact path= "/profile/:id">
+                <Route exact path= "/profile/">
                     <ProfilePage/>
                 </Route>
-                <Route exact path= "/restaurant/:id">
+                <Route exact path= "/restaurant/">
                     <RestaurantPage/>
                 </Route>
                 <Route exact path= "/search">

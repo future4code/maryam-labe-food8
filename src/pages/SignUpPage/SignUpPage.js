@@ -11,6 +11,7 @@ import { goToRegisterAdress } from "../../routes/cordinator";
 import InputMask from 'react-input-mask' 
 
 
+
 const SignUpPage = () => {
     const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: "", password: ""});
 

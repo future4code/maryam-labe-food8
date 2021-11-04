@@ -1,10 +1,13 @@
 import React from 'react';
-import ProfilePage from './pages/ProfilePage/ProfilePage'
+import logo from './logo.svg';
+import './App.css';
+import Router from "./routes/Router"
 
-const App = () =>{
-  return(
+function App() {
+  return (
     <div>
-      <ProfilePage/>
+      <Router/>
+
     </div>
   )
 }

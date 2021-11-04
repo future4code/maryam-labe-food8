@@ -25,12 +25,12 @@ export const goToLogin= (history) =>
 
 export const goToProfile = (history) =>
 {
-    history.push(`/profile/${id}`)
+    history.push(`/profile/`)
 }
 
 export const goToRestaurante = (history) =>
 {
-    history.push(`/restaurant/${id}`)
+    history.push(`/restaurant/`)
 }
 
 export const goToSearch = (history) =>
