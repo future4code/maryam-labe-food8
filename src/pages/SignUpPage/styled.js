@@ -30,14 +30,13 @@ padding: 12px 16px;
 border-radius: 4px;
 background-color: #5cb646;
 border-color: #5cb646
-
 `
 export const Logo = styled.img`
 width: 124px;
 height: 78px;
 margin: 68px 128px 16px;
 object-fit: contain;
-margin-top: 15vH;
+margin-top: 10vH;
 `
 export const TextStyle = styled.p`
 width: 296px;

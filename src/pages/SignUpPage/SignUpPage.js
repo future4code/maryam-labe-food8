@@ -9,6 +9,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
 import { goToRegisterAdress } from "../../routes/cordinator";
 import InputMask from 'react-input-mask' 
+import HeaderBack from "../../components/HeaderBack";
 
 
 const SignUpPage = () => {
@@ -36,7 +37,7 @@ const SignUpPage = () => {
 
     return (
       <PageContainer>
-        <BackButton src ={Back}/>
+        <HeaderBack  />
         <Logo src ={LogoFood}/>
         <TextStyle> Cadastrar </TextStyle>
         <form onSubmit={onSubmitForm}>
@@ -65,7 +66,7 @@ const SignUpPage = () => {
                 margin={"normal"}
           />
           <br/>
-          < InputMask mask='999.999.999-99'
+          <TextField  mask='999.999.999-99'
                     type={"cpf"}
                     name={"cpf"}
                     value={form.cpf}
@@ -74,6 +75,7 @@ const SignUpPage = () => {
                     required
                     variant={"outlined"}
                     fullWidth
+                    margin={"normal"}
             />
             <br/>
           <TextField
@@ -103,13 +105,14 @@ const SignUpPage = () => {
           />
           <br/>
             
-          <Button 
+          <ButtonContainer 
           color={'#5cb646'} 
           variant={'contained'}
-          type={"submit"} 
+          type={"submit"}
+          margin={"normal"} 
           fullWidth
           onClick={() => goToRegisterAdress(history)}
-          > Create Account </Button>
+          > Create Account </ButtonContainer>
         </form>
  
       </PageContainer>
