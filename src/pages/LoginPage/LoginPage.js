@@ -42,7 +42,7 @@ const LoginPage = () => {
     return (
       <PageContainer>
         <Logo src ={LogoFood}/>
-        <TextStyle> Sign In </TextStyle>
+        <TextStyle> Login </TextStyle>
         <form onSubmit={onSubmitForm}>
           <TextField
                 placeholder = 'email@email.com'
