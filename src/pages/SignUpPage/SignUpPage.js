@@ -23,6 +23,7 @@ const SignUpPage = () => {
     }})
     .then((res)=>{
       console.log(res)
+      
       clear()
       goToRegisterAdress(history)
   })

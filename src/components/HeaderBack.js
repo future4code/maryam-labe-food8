@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { goToLogin } from "../routes/cordinator"
+import { goBack, goToLogin } from "../routes/cordinator"
 import { useHistory } from "react-router"
 import back from '../assets/back.png'
 const HeaderBox = styled.div`
@@ -22,7 +22,7 @@ const HeaderBack = () =>
     const history = useHistory();
     return(
     <HeaderBox>
-        <BackButton color="inherit" onClick={()=>goToLogin(history)}><img src={back}/></BackButton>
+        <BackButton color="inherit" onClick={()=>goBack(history)}><img src={back}/></BackButton>
     </HeaderBox>
     )
 }

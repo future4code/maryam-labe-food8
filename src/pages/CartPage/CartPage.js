@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import {goToSignUp} from "../../routes/cordinator"
 import { useHistory } from "react-router";
 import FooterMenu from "../../components/FooterMenu";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 
 
@@ -103,7 +104,7 @@ const Time = styled.p`
 `
 
 const CardsContainer=styled.div`
-height: 20vh;
+
 `
 
 const PriceBox = styled.div`
@@ -211,7 +212,13 @@ const Button = styled.div`
 
 const CartPage = () =>
 {   const history= useHistory();    
-
+    const [paymentMethod, setPaymentMethod] = useState("");
+    const inCartPage=false;
+    const handlePaymentChange = (event) => {
+        setPaymentMethod(event.target.value);
+        console.log(paymentMethod);
+    };
+    
     return(
         <CartBox>
             <TitleBox>
@@ -227,6 +234,8 @@ const CartPage = () =>
                 <Time>30 - 45 min</Time>
             </OrderBox>
             <CardsContainer>
+            <ProductCard inCartPage={inCartPage}/>
+            
             
             </CardsContainer>
             <PriceBox>
@@ -237,9 +246,12 @@ const CartPage = () =>
             <PaymentBox>
                 <PaymentTittle>Forma de Pagamento</PaymentTittle>
                 <Line/>
-                <PaymentsTypeBox>
-                    <input type="radio" name="payment" value ="Dinheiro"/> Dinheiro <br/>
-                    <input type="radio" name="payment" value ="Cartao"/> Cartão de crédito<br/> 
+                <PaymentsTypeBox
+                value={paymentMethod}
+                onChange={handlePaymentChange}
+                >
+                    <input type="radio" name="payment" value ="Money"/> Dinheiro <br/>
+                    <input type="radio" name="payment" value ="CreditCard"/> Cartão de crédito<br/> 
                 </PaymentsTypeBox>
                 
             </PaymentBox>

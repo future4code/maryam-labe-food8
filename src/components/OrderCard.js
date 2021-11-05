@@ -9,6 +9,7 @@ height: 18vh;
 display: flex;
 align-items: center;
 padding-left: 6vw;
+
 `
 const Clockimg = styled.img`
 width: 32px;
