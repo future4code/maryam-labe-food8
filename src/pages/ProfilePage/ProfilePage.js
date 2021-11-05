@@ -4,12 +4,9 @@ import GetProfile from './GetProfile'
 import {useHistory} from 'react-router-dom'
 import {goToAddress, goToPerfil} from '../../routes/cordinator'
 
+
 const ProfilePage = () =>{
     const history = useHistory()
-}
-
-const ProfilePage = () =>{
-
     return(
         <div>
             <GetProfile/>

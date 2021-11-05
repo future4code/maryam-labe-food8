@@ -3,13 +3,12 @@ import useForm from '../../hooks/useForm';
 import { useHistory } from "react-router-dom";
 import LogoFood from '../../assets/logo-future-eats.png'
 import Back from '../../assets/back.png'
-import {PageContainer, ButtonContainer, Logo, TextStyle} from './styled'
+import {PageContainer, ButtonContainer, Logo, TextStyle, BackButton} from './styled'
 import { TextField, Button } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
 import { goToRegisterAdress } from "../../routes/cordinator";
 import InputMask from 'react-input-mask' 
-
 
 
 const SignUpPage = () => {
@@ -103,4 +102,4 @@ const SignUpPage = () => {
     );
   }
   
-  export default LoginPage;
+  export default SignUpPage;
