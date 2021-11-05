@@ -1,13 +1,14 @@
 import axios from 'axios'
+import React, {useState, useEffect} from 'react'
+
 
 const useRequestData = (initialData, url) => {
     const [data, setData] = useState(initialData);
-    console.log(data);
     const getData = () => {
         axios
             .get(url, {
                 headers: {
-                    Authorization: localStorage.getItem("token"),
+                    auth: localStorage.getItem("token"),
                 },
             })
             .then((response) => {
