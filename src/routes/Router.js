@@ -13,8 +13,7 @@ import EditInfoPage from '../pages/EditInfoPage/EditInfoPage'
 
 
 
-const Router = () =>
-{
+const Router = () =>{
     return(
         <BrowserRouter>
             <Switch>
