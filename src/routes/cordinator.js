@@ -11,7 +11,7 @@ export const goToSignUp = (history) =>{
 }
 
 export const goToRegisterAdress = (history) =>{
-    history.push("/adress")
+    history.push("/address")
 }
 
 export const goToLogin= (history) =>{
@@ -22,7 +22,7 @@ export const goToProfile = (history) =>{
     history.push(`/profile`)
 }
 
-export const goToRestaurante = (history, id) =>{
+export const goToRestaurant = (history, id) =>{
     history.push(`/restaurant/`)
 }
 
@@ -31,9 +31,12 @@ export const goToSearch = (history) =>{
 }
 
 export const goToAddress = (history) =>{
-    history.push("/address")
+    history.push("/editaddress")
 }
 
 export const goToPerfil = (history) =>{
     history.push("/perfil")
+}
+export const goBack = (history) => {
+    history.goBack()
 }

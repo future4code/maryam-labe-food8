@@ -6,7 +6,7 @@ import {PageContainer, ButtonContainer, TextStyle, BackButton} from './styled'
 import { TextField, Button } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
-import { goToSearch } from "../../routes/cordinator";
+import { goToHome, goToSearch } from "../../routes/cordinator";
 import HeaderBack from "../../components/HeaderBack";
 
 const RegisterAddressPage = () =>
@@ -36,7 +36,7 @@ const RegisterAddressPage = () =>
     return(
       <PageContainer>
       <HeaderBack />
-      <TextStyle> Cadastrar </TextStyle>
+      <TextStyle> Address </TextStyle>
       <form onSubmit={onSubmitForm}>
       <TextField
         type={"text"}
@@ -119,7 +119,7 @@ const RegisterAddressPage = () =>
       <ButtonContainer
         variant={'contained'}
         type={"submit"}
-        onClick={() => goToSearch(history)}
+        onClick={() => goToHome(history)}
         fullWidth> Salve </ButtonContainer>
       </form>
     </PageContainer>
