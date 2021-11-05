@@ -6,6 +6,7 @@ import { TextField, Button } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
 import { goToSearch } from "../../routes/cordinator";
+import HeaderBack from "../../components/HeaderBack";
 
 
 const RegisterAddressPage = () => {
@@ -32,66 +33,98 @@ const RegisterAddressPage = () => {
 
     return (
       <PageContainer>
-        <BackButton src ={Back}/>
+        <HeaderBack />
         <TextStyle> Cadastrar </TextStyle>
         <form onSubmit={onSubmitForm}>
         <TextField
-                type={"text"}
-                name={"street"}
-                value={form.street}
-                onChange={onChange}
-                 placeholder="Endereço"
-                required
-          />
-          <TextField
-                type={"number"}
-                placeholder="N°"
-                name={"number"}
-                value={form.number}
-                onChange={onChange}
-                required
-          />
-            <TextField
-                type={"text"}
-                name={"neighbourhood"}
-                value={form.neighbourhood}
-                onChange={onChange}
-                placeholder="Bairro"
-                required
-          />
-            <TextField
-                type={"text"}
-                name={"city"}
-                value={form.city}
-                onChange={onChange}
-                placeholder="Cidade"
-                required
-          />
+          type={"text"}
+          name={"street"}
+          value={form.street}
+          onChange={onChange}
+          placeholder="Endereço"
+          required
+          label={"street"}
+          variant={"outlined"}
+          margin={"normal"}
+          fullWidth
 
-          <TextField
-                type={"text"}
-                name={"state"}
-                value={form.state}
-                onChange={onChange}
-                placeholder="Estado"
-                required
-          />
-          <TextField
-                type={"text"}
-                name={"complement"}
-                value={form.complement}
-                onChange={onChange}
-                placeholder="Complemento"
-                required
-          />
-
-              
-          <Button color={'primary'} variant={'contained'}type={"submit"} fullWidth> Salve </Button>
+        />
+        <br/>
+        <TextField
+          type={"number"}
+          placeholder="N°"
+          name={"number"}
+          value={form.number}
+          onChange={onChange}
+          required
+          label={"number"}
+          variant={"outlined"}
+          margin={"normal"}
+          fullWidth
+        />
+        <br/>
+        <TextField
+          type={"text"}
+          name={"neighbourhood"}
+          value={form.neighbourhood}
+          onChange={onChange}
+          placeholder="Bairro"
+          required
+          label={"neighbourhood"}
+          variant={"outlined"}
+          margin={"normal"}
+          fullWidth
+        />
+        <br/>
+        <TextField
+          type={"text"}
+          name={"city"}
+          value={form.city}
+          onChange={onChange}
+          placeholder="Cidade"
+          required
+          label={"city"}
+          variant={"outlined"}
+          margin={"normal"}
+          fullWidth
+        />
+        <br/>
+        <TextField
+          type={"text"}
+          name={"state"}
+          value={form.state}
+          onChange={onChange}
+          placeholder="Estado"
+          required
+          label={"state"}
+          variant={"outlined"}
+          margin={"normal"}
+          fullWidth
+        />
+        <br/>
+        <TextField
+          type={"text"}
+          name={"complement"}
+          value={form.complement}
+          onChange={onChange}
+          placeholder="Complemento"
+          required
+          label={"complement"}
+          variant={"outlined"}
+          margin={"normal"}
+          fullWidth
+        />
+        <br/>              
+        <ButtonContainer 
+          variant={'contained'}
+          type={"submit"}
+          onClick={() => goToSearch(history)}
+          fullWidth> Salve </ButtonContainer>
         </form>
  
       </PageContainer>
     );
-}
+  }
 }
   
 export default RegisterAddressPage

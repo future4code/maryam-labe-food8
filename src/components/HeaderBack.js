@@ -15,6 +15,8 @@ const BackButton = styled.button`
     height: 24px;
     margin: 10px 321px 0 16px;
     object-fit: contain;
+    border: none;
+    background-color: #f8f8ff;
 `
 
 const HeaderBack = () =>

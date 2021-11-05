@@ -8,7 +8,7 @@ import RegisterAddressPage from './pages/SignUpPage/RegisterAddressPage';
 function App() {
   return (
     <div>
-      <Router/>
+      <RegisterAddressPage />
 
     </div>
   )

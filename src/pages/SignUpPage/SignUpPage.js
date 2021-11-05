@@ -37,7 +37,7 @@ const SignUpPage = () => {
 
     return (
       <PageContainer>
-        <HeaderBack  />
+        <HeaderBack />
         <Logo src ={LogoFood}/>
         <TextStyle> Cadastrar </TextStyle>
         <form onSubmit={onSubmitForm}>
