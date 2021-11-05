@@ -10,6 +10,7 @@ import SearchRestaurantsPage from "../pages/SearchRestaurantsPage/SearchRestaura
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import EditAddressPage from '../pages/EditAddressPage/EditAddressPage'
 import EditInfoPage from '../pages/EditInfoPage/EditInfoPage'
+import RegisterAddressPage from "../pages/SignUpPage/RegisterAddressPage";
 
 
 
@@ -56,6 +57,9 @@ const Router = () =>{
 
                 <Route exact path= "/search">
                     <SearchRestaurantsPage/>
+                </Route>
+                <Route exact path= "/adress">
+                    <RegisterAddressPage/>
                 </Route>
 
                 <Route exact default>
