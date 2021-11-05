@@ -37,7 +37,7 @@ width: 124px;
 height: 78px;
 margin: 68px 128px 16px;
 object-fit: contain;
-margin-top: 15vH;
+margin-top: 2vH;
 `
 export const TextStyle = styled.p`
 width: 296px;
