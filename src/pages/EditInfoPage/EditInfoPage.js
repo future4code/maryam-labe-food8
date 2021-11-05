@@ -11,7 +11,8 @@ const EditInfoPage = () =>{
 
 
     const updateProfile = () =>{
-        
+        console.log(form)
+        console.log(localStorage.getItem("token"))
         axios.put(`${BASE_URL}/profile`, form, {
             headers: {auth: localStorage.getItem("token")}})
             .then((res)=>{
@@ -24,8 +25,21 @@ const EditInfoPage = () =>{
     }
 
     const mascara = (valor) =>{
-       let valorMascarado= valor.replace(/\D+/g,"")
-       return valorMascarado
+  
+       if (valor.length <= 14) {
+        valor = valor.replace(/\D/g, '')
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2')
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2')
+        valor = valor.replace(/(\d{3})(\d{1,2})/, '$1-$2')
+        valor = valor.replace(/(-\d{2})\d+?$/, '$1')
+      } else if(valor.length > 14){
+        valor = valor.replace(/\D/g, '')
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2')
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2')
+        valor = valor.replace(/(\d{3})(\d{1,2})/, '$1-$2')
+        valor = valor.replace(/(-\d{2})\d+?$/, '$1')
+      }
+      return valor
     }
 
     const  onSubmitForm = (event) =>{

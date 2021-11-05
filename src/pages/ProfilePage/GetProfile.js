@@ -1,25 +1,29 @@
 import React from 'react'
-import axios from 'axios'
 import { BASE_URL } from '../../constants/urls'
+import useRequestData from '../../hooks/useRequestData'
+import {Profiles, Img, PerfilContainer, InforEnd} from './styled'
+import {goToPerfil} from '../../routes/cordinator'
+import editor from '../../assets/editor.png'
+import {useHistory} from 'react-router-dom'
 
 const GetAddress = () =>{
-
-    const Profile = () =>{
-        
-        axios.get(`${BASE_URL}/profile`, {
-            headers: {auth: localStorage.getItem("token")}})
-            .then((res)=>{
-                console.log(res)
-            })
-            .catch((error)=>{
-                console.log(error.message)
-            })
-    }
-
+    const history = useHistory()
+    const profile = useRequestData({}, `${BASE_URL}/profile`)[0]
+    
     return (
-        <div>
-            
-        </div>
+        <PerfilContainer>
+        <Profiles>
+            {profile.user && profile.user.name}
+            <Img src={editor} alt="lapis para editar" onClick={() =>goToPerfil(history)}/>
+        </Profiles>
+        <Profiles>
+            {profile.user && profile.user.email}
+        </Profiles>
+        <Profiles>
+            {profile.user && profile.user.cpf.replace(/(\d{3})(\d)/, '$1.$2' && (/(\d{3})(\d)/, '$1.$2') && (/(\d{3})(\d{1,2})/, '$1-$2') && (/(-\d{2})\d+?$/, '$1')) }
+        </Profiles>
+        </PerfilContainer>
+
     )
 }
 export default GetAddress

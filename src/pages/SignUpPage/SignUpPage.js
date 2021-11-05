@@ -19,7 +19,9 @@ const SignUpPage = () => {
   }
   const signUp = (form, clear, history) => {
     axios.post(`${BASE_URL}/signUp`, form, {
+
       headers: {Authorization: localStorage.setItem("token")
+
     }})
     .then((res)=>{
       console.log(res)

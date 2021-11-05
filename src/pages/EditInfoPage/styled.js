@@ -26,7 +26,7 @@ export const Input = styled(TextField)`
   line-height: normal;
   letter-spacing: -0.39px;
   font-weight: lighter;
-  color: var(--black);
+  color: black;
 `
 
 export const Rectangle = styled.div`
@@ -63,4 +63,5 @@ export const ContainerButton = styled.div`
     border-radius: 4px;
     background-color: #5cb646;
 `
+
  
