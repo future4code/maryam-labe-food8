@@ -8,34 +8,31 @@ import { TextField, Button } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
 import { goToRegisterAdress } from "../../routes/cordinator";
-import InputMask from 'react-input-mask' 
-
-
+import InputMask from 'react-input-mask'
+import HeaderBack from "../../components/HeaderBack";
 const SignUpPage = () => {
     const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: "", password: ""});
-
     const history = useHistory ()
-    
   const onSubmitForm = (event) => {
     event.preventDefault()
     signUp()
   }
-
   const signUp = (form, clear, history) => {
-    
     axios.post(`${BASE_URL}/signUp`, form, {
-      headers: {Authorization: localStorage.setItem("token", /*res.data.token*/)
+
+      headers: {Authorization: localStorage.setItem("token")
+
     }})
-    .then((res) => console.log(res))
-      // clear()
-      // goToRegisterAdress(history)
-    // })
+    .then((res)=>{
+      console.log(res)
+      clear()
+      goToRegisterAdress(history)
+  })
     .catch((err) => console.log(err.response.data.message))
   }
-
     return (
       <PageContainer>
-        <BackButton src ={Back}/>
+        <HeaderBack />
         <Logo src ={LogoFood}/>
         <TextStyle> Cadastrar </TextStyle>
         <form onSubmit={onSubmitForm}>
@@ -50,6 +47,7 @@ const SignUpPage = () => {
                 fullWidth
                 margin={"normal"}
           />
+          <br/>
           <TextField
                 placeholder = 'email@email.com'
                 name={"email"}
@@ -61,14 +59,19 @@ const SignUpPage = () => {
                 fullWidth
                 margin={"normal"}
           />
-          < InputMask mask='999.999.999-99'
+          <br/>
+          <TextField  mask='999.999.999-99'
                     type={"cpf"}
                     name={"cpf"}
                     value={form.cpf}
                     onChange={onChange}
                     placeholder="Cpf"
                     required
+                    variant={"outlined"}
+                    fullWidth
+                    margin={"normal"}
             />
+            <br/>
           <TextField
                 placeholder = "Minimun of 6 characters"
                 name={"password"}
@@ -81,6 +84,7 @@ const SignUpPage = () => {
                 type={"Password"}
                 fullWidth
           />
+          <br/>
             <TextField
                 placeholder = "Minimun of 6 characters"
                 name={"password"}
@@ -93,13 +97,17 @@ const SignUpPage = () => {
                 type={"Password"}
                 fullWidth
           />
-
-              
-          <Button color={'primary'} variant={'contained'}type={"submit"} fullWidth> Create Account </Button>
+          <br/>
+          <ButtonContainer
+          color={'#5CB646'}
+          variant={'contained'}
+          type={"submit"}
+          margin={"normal"}
+          fullWidth
+          onClick={() => goToRegisterAdress(history)}
+          > Create Account </ButtonContainer>
         </form>
- 
       </PageContainer>
     );
   }
-  
   export default SignUpPage;
