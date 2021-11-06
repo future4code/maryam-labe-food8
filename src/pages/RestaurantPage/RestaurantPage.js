@@ -1,35 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { BackButton, Header, Title, Product, Name, Div, Description, P, Category } from './styled';
 import Back from '../../assets/back.png';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import useProtectedPage from '../../hooks/useProtectedPage';
 import useRequestData from '../../hooks/useRequestData';
 import {BASE_URL} from '../../constants/urls';
+import { useHistory, useParams } from "react-router-dom";
+import { goBack } from '../../routes/cordinator'
 
 
 const RestaurantPage = () =>{
     useProtectedPage()
+    const history = useHistory()
+    const params = useParams()
 
-    const restaurant = useRequestData([], `${BASE_URL}/restaurants/2`)[0]
+    // const [restaurantInfo, setRestaurantInfo] = useState({})
+
+    const restaurant = useRequestData([], `${BASE_URL}/restaurants/${params.id}`)[0]
     console.log(restaurant)
     
-    // const getDetails = restaurant.map((detail) => { 
-    //     return (
-    //       <ProductCard
-    //         key={detail.id}
-    //         name={detail.name}
-    //         description={detail.description}
-    //         price={detail.price}
-    //       />
-    
-    //     )
-    //   })
 
 
     return(
         <div>
             <Header>
-                <BackButton>
+                <BackButton onClick={() => goBack(history)}>
                     <img src = {Back} alt="Símbolo que indica o ato de voltar"/>
                 </BackButton>
                 <Title> Restaurante</Title>
@@ -47,8 +42,14 @@ const RestaurantPage = () =>{
             </div>
             <br/>
 
+
             <Category> Principais </Category>
-           
+            {/* {restaurantInfo.restaurants &&
+            restaurantInfo.restaurants.map((restaurant, index) => {
+                return (
+                    index < 7 && <p key={restaurant.restaurant.name}>{restaurant.restaurant.name}</p>
+                );
+                })} */}
             <ProductCard/>
             <Category> Acompanhamentos </Category>
             <ProductCard/>

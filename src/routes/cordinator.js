@@ -23,7 +23,7 @@ export const goToProfile = (history) =>{
 }
 
 export const goToRestaurant = (history, id) =>{
-    history.push(`/restaurant/`)
+    history.push(`/restaurant/${id}`)
 }
 
 export const goToSearch = (history) =>{
