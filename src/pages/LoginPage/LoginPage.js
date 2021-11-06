@@ -19,7 +19,6 @@ const LoginPage = () => {
     console.log(form)
   }
 
-
   const login = (form, clear, history) => {
     axios.post(`${BASE_URL}/login`, form)
     .then((res) => {
@@ -27,22 +26,17 @@ const LoginPage = () => {
       localStorage.setItem("token", res.data.token)
       clear()
       goToHome(history)
-      checkAdress()
+     
     })
     .catch((err) => console.log(err))
   }
 
-  const checkAdress = (hasAdress) => {
-    if(hasAdress === true){
-    return login()
-    }if (hasAdress === false)
-    return goToSignUp()
-  }
+  
 
     return (
       <PageContainer>
         <Logo src ={LogoFood}/>
-        <TextStyle> Login </TextStyle>
+        <TextStyle> Entrar </TextStyle>
         <form onSubmit={onSubmitForm}>
           <TextField
                 placeholder = 'email@email.com'
@@ -57,12 +51,12 @@ const LoginPage = () => {
           />
             <br/>
           <TextField
-                placeholder = "Minimum of 6 characters"
+                placeholder = "Mínimo 6 caracteres"
                 name={"password"}
                 value = {form.password}
                 onChange = {onChange}
                 required
-                label={"Password"}
+                label={"Senha"}
                 variant={"outlined"}
                 margin={"normal"}
                 type={"Password"}
@@ -70,15 +64,15 @@ const LoginPage = () => {
           />
               <br/>
               <br/>
-          <ButtonContainer type={"submit"}> Sign In </ButtonContainer>
+          <ButtonContainer type={"submit"}> Entrar </ButtonContainer>
         </form>
         <Button
           type={"submit"}
           fullWidth
           variant={"text"}
-          // onClick={() => goToSignUp(history)}
+          onClick={() => goToSignUp(history)}
         >
-          Don't have an account? Click here.
+           Não possui cadastro? Clique aqui.
         </Button>
       </PageContainer>
     );

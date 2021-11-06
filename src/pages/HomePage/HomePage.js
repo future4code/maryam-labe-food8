@@ -24,8 +24,9 @@ const HomePage = () => {
     useEffect(()=>{
         listRestaurant()
     }, [])
-    const onClickCard = (restaurantId) =>{
-        goToRestaurant(history, restaurantId)
+
+    const onClickCard = (id) =>{
+        goToRestaurant(history, id)
     }
     const restaurantsCards = restaurants.map((restaurant)=>{
         return (
@@ -35,7 +36,7 @@ const HomePage = () => {
                 image ={restaurant.logoUrl}
                 time={restaurant.deliveryTime}
                 frete={restaurant.shipping}
-                onClick={() => onClickCard(restaurant.restaurants_restaurantId)}
+                onClick={() => onClickCard (restaurant.id)}
                 />
             )
         })

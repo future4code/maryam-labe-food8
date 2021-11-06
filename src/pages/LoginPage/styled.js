@@ -77,4 +77,8 @@ border: 0px white;
 cursor: pointer;
 font-family: unset;
 font-size: 16px;
+margin-top: 12px;
+letter-spacing: -0.39px;
+text-align: center;
+color: var(--black);
 ` 
