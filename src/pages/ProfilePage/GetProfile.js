@@ -8,7 +8,7 @@ import {useHistory} from 'react-router-dom'
 
 const GetAddress = () =>{
     const history = useHistory()
-    const profile = useRequestData({}, `${BASE_URL}/profile`)[0]
+    const profile = useRequestData([], `${BASE_URL}/profile`)[0]
     
     return (
         <PerfilContainer>

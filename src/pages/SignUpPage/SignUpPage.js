@@ -3,6 +3,7 @@ import useForm from '../../hooks/useForm';
 import { useHistory } from "react-router-dom";
 import LogoFood from '../../assets/logo-future-eats.png'
 import Back from '../../assets/back.png'
+import saida from '../../assets/saida.png'
 import {PageContainer, ButtonContainer, Logo, TextStyle, BackButton} from './styled'
 import { TextField, Button } from "@material-ui/core";
 import axios from 'axios';
