@@ -10,9 +10,29 @@ import { BASE_URL } from '../../constants/urls'
 import { goToRegisterAdress } from "../../routes/cordinator";
 import InputMask from 'react-input-mask'
 import HeaderBack from "../../components/HeaderBack";
+
 const SignUpPage = () => {
     const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: "", password: ""});
     const history = useHistory ()
+
+    const mascara = (valor) =>{
+  
+      if (valor.length <= 14) {
+       valor = valor.replace(/\D/g, '')
+       valor = valor.replace(/(\d{3})(\d)/, '$1.$2')
+       valor = valor.replace(/(\d{3})(\d)/, '$1.$2')
+       valor = valor.replace(/(\d{3})(\d{1,2})/, '$1-$2')
+       valor = valor.replace(/(-\d{2})\d+?$/, '$1')
+     } else if(valor.length > 14){
+       valor = valor.replace(/\D/g, '')
+       valor = valor.replace(/(\d{3})(\d)/, '$1.$2')
+       valor = valor.replace(/(\d{3})(\d)/, '$1.$2')
+       valor = valor.replace(/(\d{3})(\d{1,2})/, '$1-$2')
+       valor = valor.replace(/(-\d{2})\d+?$/, '$1')
+     }
+     return valor
+   }
+
   const onSubmitForm = (event) => {
     event.preventDefault()
     signUp()
@@ -33,6 +53,7 @@ const SignUpPage = () => {
   }
     return (
       <PageContainer>
+        
         <HeaderBack />
         <Logo src ={LogoFood}/>
         <TextStyle> Cadastrar </TextStyle>
@@ -61,12 +82,12 @@ const SignUpPage = () => {
                 margin={"normal"}
           />
           <br/>
-          <TextField  mask='999.999.999-99'
-                    type={"cpf"}
+          <TextField 
+                    type={"text"}
                     name={"cpf"}
                     value={form.cpf}
-                    onChange={onChange}
-                    placeholder="Cpf"
+                    onChange={(event)=> onChange(event, mascara)}
+                    label="Cpf"
                     required
                     variant={"outlined"}
                     fullWidth
@@ -98,6 +119,7 @@ const SignUpPage = () => {
                 type={"Password"}
                 fullWidth
           />
+          <br/>
           <br/>
           <ButtonContainer
           color={'#5CB646'}
