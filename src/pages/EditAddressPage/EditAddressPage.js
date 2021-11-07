@@ -8,6 +8,11 @@ import {useHistory} from "react-router-dom"
 import useProtectedPage from '../../hooks/useProtectedPage'
 import {EditarCadastro,StyledButton, Rectangle, Input, ContainerButton, Header, BackButton, Title} from './styled'
 import CircularProgress from "@material-ui/core/CircularProgress"
+import { ButtonContainer, PageContainer, TextStyle } from '../SignUpPage/styled'
+import HeaderBack from '../../components/HeaderBack'
+import { TextField } from '@material-ui/core'
+import { goToHome, goToProfile } from '../../routes/cordinator'
+
 
 
 const EditAddressPage = () => {
@@ -15,6 +20,7 @@ useProtectedPage()
 const history = useHistory()
 const [form, onChange, clear] = useForm({street: '', number: '', neighbourhood: '', city: '', state: '', complement: ''})
 const [isLoading, setIsLoading]= useState(false)
+
 
 const addAdress = () =>{
     setIsLoading(true)
@@ -37,6 +43,7 @@ const addAdress = () =>{
     }
 
     return (
+
     <EditarCadastro>
             <Header>
             <BackButton onClick={() => goToProfile(history)}> <img src = {Back}/></BackButton>
@@ -114,8 +121,9 @@ const addAdress = () =>{
                    {isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>}
                 </StyledButton>
             </ContainerButton>
+
         </form>
-    </EditarCadastro>
+      </PageContainer>
     )
 
 }

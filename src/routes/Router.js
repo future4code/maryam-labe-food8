@@ -35,7 +35,7 @@ const Router = () =>{
                     <LoginPage/>
                 </Route>
 
-                <Route exact path= "/address">
+                <Route exact path= "/editaddress">
                     <EditAddressPage/>
                 </Route>
 
@@ -58,7 +58,7 @@ const Router = () =>{
                 <Route exact path= "/search">
                     <SearchRestaurantsPage/>
                 </Route>
-                <Route exact path= "/adress">
+                <Route exact path= "/address">
                     <RegisterAddressPage/>
                 </Route>
 

@@ -5,7 +5,7 @@ display:flex;
 width: 348px;
 flex: 0 1 auto;
 height: 112px;
-margin: 4px 4px 4px 13px;
+margin: 10px 4px 4px 13px;
 border-radius: 8px;
 border: solid 1px #b8b8b8;
 // font-family: Roboto;
@@ -27,6 +27,23 @@ background-color: white;
 // font-family: Roboto;
 font-family: unset;
 color: #5cb646;
+`
+export const RedButtonStyle = styled.button`
+width: 74px;
+height: 34px;
+display: flex;
+justify-item: center;
+justify-content: center;
+margin: 0px 0px 0px 20px;
+padding: 8px 20.5px 9px 21.5px;
+border-radius: 8px 0px;
+border: solid 1px #e02020;
+float: right;
+cursor: pointer;
+background-color: white;
+// font-family: Roboto;
+font-family: unset;
+color: #e02020;
 `
 export const CountButtonStyle = styled.button`
 width: 33px;

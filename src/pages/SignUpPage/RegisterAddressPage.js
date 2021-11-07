@@ -6,7 +6,7 @@ import {PageContainer, ButtonContainer, TextStyle, BackButton} from './styled'
 import { TextField, Button } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
-import { goToSearch } from "../../routes/cordinator";
+import { goToHome, goToSearch } from "../../routes/cordinator";
 import HeaderBack from "../../components/HeaderBack";
 import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 import CircularProgress from "@material-ui/core/CircularProgress"
@@ -41,7 +41,7 @@ const RegisterAddressPage = () =>{
     return(
       <PageContainer>
       <HeaderBack />
-      <TextStyle> Cadastrar </TextStyle>
+      <TextStyle> Address </TextStyle>
       <form onSubmit={onSubmitForm}>
       <TextField
         type={"text"}
@@ -120,12 +120,18 @@ const RegisterAddressPage = () =>{
         margin={"normal"}
         fullWidth
       />
-      <br/>              
+      <br/>     
+      <br/>          
       <ButtonContainer
         variant={'contained'}
         type={"submit"}
+
         onClick={() => goToSearch(history)}
         fullWidth>{isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>} </ButtonContainer>
+
+        onClick={() => goToHome(history)}
+        fullWidth> Salve </ButtonContainer>
+
       </form>
     </PageContainer>
     )
