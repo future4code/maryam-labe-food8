@@ -3,9 +3,10 @@ import { BackButton, Header, Title, Product, Name, Div, Description, P, Category
 import Back from '../../assets/back.png'
 import NewBurguer from '../../assets/burguer.png'
 import ProductCard from '../../components/ProductCard/ProductCard'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
-const RestaurantPage = () =>
-{
+const RestaurantPage = () =>{
+    useProtectedPage()
     return(
         <div>
             <Header>

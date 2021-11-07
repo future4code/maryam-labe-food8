@@ -1,10 +1,11 @@
 import styled from 'styled-components'
+import TextField from '@mui/material/TextField'
 
 export const PageContainer = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-width: 100vW;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vW;
 `
 
 export const InputContainer = styled.input`
@@ -14,7 +15,6 @@ margin: 8px 0 0;
 padding: 19px 48px 19px 16px;
 border-radius: 2px;
 border: solid 1px #b8b8b8;
-// label:"E-mail"
 `
 export const FormContainer = styled.div`
 display: flex;
@@ -75,4 +75,24 @@ export const BackButton = styled.button`
     height: 24px;
     margin: 10px 321px 0 16px;
     object-fit: contain;
+`
+
+export const Input = styled(TextField)`
+  width: 340px;
+  height: 56px;
+  margin: 8px 0px 0px;
+  padding: 19px 38px 19px 16px;
+  border-radius: 4px;
+  border: solid 1px #b8b8b8;
+  color: black;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  font-weight: lighter;
+  color: black;
+  
 `

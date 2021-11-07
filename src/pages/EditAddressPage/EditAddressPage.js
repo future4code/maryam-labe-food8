@@ -1,24 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import useForm from '../../hooks/useForm'
 import {BASE_URL} from '../../constants/urls'
 import axios from 'axios'
-import {EditarCadastro,StyledButton, Rectangle, Input, ContainerButton} from './styled'
+import Back from '../../assets/back.png'
+import {goToProfile} from '../../routes/cordinator'
+import {useHistory} from "react-router-dom"
+import useProtectedPage from '../../hooks/useProtectedPage'
+import {EditarCadastro,StyledButton, Rectangle, Input, ContainerButton, Header, BackButton, Title} from './styled'
+import CircularProgress from "@material-ui/core/CircularProgress"
+
 
 const EditAddressPage = () => {
-
+useProtectedPage()
+const history = useHistory()
 const [form, onChange, clear] = useForm({street: '', number: '', neighbourhood: '', city: '', state: '', complement: ''})
+const [isLoading, setIsLoading]= useState(false)
 
 const addAdress = () =>{
-    console.log(form)
-    console.log(localStorage.getItem("token"))
+    setIsLoading(true)
     axios.put(`${BASE_URL}/address`, form, {
         headers: {'auth': localStorage.getItem("token")}})
         .then((res)=>{
-            console.log(res)
+            alert("Endereço atualizado com sucesso!")
             clear()
+            setIsLoading(false)
         })
         .catch((error)=>{
-            console.log(error.message)
+            alert("Ocorreu um erro, tente novamente!")
         })
 
     }    
@@ -30,6 +38,10 @@ const addAdress = () =>{
 
     return (
     <EditarCadastro>
+            <Header>
+            <BackButton onClick={() => goToProfile(history)}> <img src = {Back}/></BackButton>
+            <Title> Edit Address</Title>
+            </Header>
         <form onSubmit={onSubmitForm}>
             <Rectangle>
            <Input
@@ -99,7 +111,7 @@ const addAdress = () =>{
             <ContainerButton>
             <StyledButton
                 type={"submit"}>
-                    Salvar
+                   {isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>}
                 </StyledButton>
             </ContainerButton>
         </form>

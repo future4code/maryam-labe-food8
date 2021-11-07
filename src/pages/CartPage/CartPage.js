@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {goToSignUp} from "../../routes/cordinator"
 import { useHistory } from "react-router";
 import FooterMenu from "../../components/FooterMenu";
-
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 
 const CartBox = styled.div`
@@ -210,7 +210,8 @@ const Button = styled.div`
 `
 
 const CartPage = () =>
-{   const history= useHistory();    
+{   const history= useHistory();  
+    useProtectedPage()  
 
     return(
         <CartBox>
