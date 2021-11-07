@@ -42,24 +42,26 @@ const SignUpPage = () => {
 
   const onSubmitForm = (event) => {
     event.preventDefault()
-    signUp()
+    signUp(form, clear, history)
   }
-  const signUp = (form, clear, history) => {
+
+
+  const signUp = (form, clear, history) =>{
     setIsLoading(true)
-    axios.post(`${BASE_URL}/signUp`, form, {
-
-      headers: {auth: localStorage.setItem("token")
-
-    }})
-    .then((res)=>{
-      console.log(res)
-      setIsLoading(false)
-
-      clear()
-      goToRegisterAdress(history)
-  })
-    .catch((err) => console.log(err.response.data.message))
-  }
+    console.log(form)
+    console.log(localStorage.getItem("token"))
+    axios.put(`${BASE_URL}/signUp`, form, {
+        headers: {auth: localStorage.getItem("token")}})
+        .then((res)=>{
+            console.log(res)
+            setIsLoading(false)
+            clear()
+            goToRegisterAdress(history)
+        })
+        .catch((error)=>{
+            console.log(error.response.data.message)
+        })
+}
 
 
     return (
@@ -69,7 +71,7 @@ const SignUpPage = () => {
         <Logo src ={LogoFood}/>
         <TextStyle> Cadastrar </TextStyle>
         <form onSubmit={onSubmitForm}>
-        <Input
+          <TextField
                 placeholder = 'Name'
                 name={"name"}
                 value = {form.name}
@@ -81,7 +83,10 @@ const SignUpPage = () => {
                 margin={"normal"}
           />
           <br/>
+            <TextField
+
           <Input
+
                 placeholder = 'email@email.com'
                 name={"email"}
                 value = {form.email}
@@ -93,13 +98,18 @@ const SignUpPage = () => {
                 margin={"normal"}
           />
           <br/>
-
-          <Input
-                    type={"text"}
-                    name={"cpf"}
-                    value={form.cpf}
-                    onChange={onChange}
-
+            <TextField 
+                type={"text"}
+                name={"cpf"}
+                value={form.cpf}
+                onChange={(event)=> onChange(event, mascara)}
+                label="Cpf"
+                required
+                variant={"outlined"}
+                fullWidth
+                margin={"normal"}
+            />
+          <br/>
           <TextField 
                     type={"text"}
                     name={"cpf"}
@@ -109,7 +119,7 @@ const SignUpPage = () => {
                     required
             />
             <br/>
-          <Input
+          <TextField
                 placeholder = "Minimun of 6 characters"
                 name={"password"}
                 value = {form.password}
@@ -120,9 +130,9 @@ const SignUpPage = () => {
                 margin={"normal"}
                 type={"Password"}
                 fullWidth
-          />
+            />
           <br/>
-            <Input
+            <TextField
                 placeholder = "Minimun of 6 characters"
                 name={"password"}
                 value = {form.password}
@@ -133,17 +143,18 @@ const SignUpPage = () => {
                 margin={"normal"}
                 type={"Password"}
                 fullWidth
-          />
+            />
           <br/>
           <br/>
-          <ButtonContainer
-          color={'#5CB646'}
-          variant={'contained'}
-          type={"submit"}
-          margin={"normal"}
-          fullWidth
-          onClick={() => goToRegisterAdress(history)}
-          > {isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Create Account</>}  </ButtonContainer>
+            <ButtonContainer
+            color={'#5CB646'}
+            variant={'contained'}
+            type={"submit"}
+            margin={"normal"}
+            fullWidth
+            onClick={() => goToRegisterAdress(history)}
+            > Create Account </ButtonContainer>
+
         </form>
       </PageContainer>
     );

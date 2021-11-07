@@ -14,7 +14,9 @@ import CircularProgress from "@material-ui/core/CircularProgress"
 const RegisterAddressPage = () =>{
   useUnprotectedPage()
   const [form, onChange, clear] = useForm({street: '', number: '', neighbourhood: '', city: '', state: '', complement: ''});
+  
   const history = useHistory()
+
   const [isLoading, setIsLoading]= useState(false)
 
   const registerAddress = (form, clear, history) =>{
@@ -33,7 +35,7 @@ const RegisterAddressPage = () =>{
     }
         const onSubmitForm = (event) => {
           event.preventDefault()
-          registerAddress()
+          registerAddress(form)
         }
       
  
