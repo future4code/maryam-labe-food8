@@ -83,8 +83,6 @@ const signUp = (form, clear, history) => {
           <br/>
             <TextField
 
-          <Input
-
                 placeholder = 'email@email.com'
                 name={"email"}
                 value = {form.email}
@@ -96,6 +94,8 @@ const signUp = (form, clear, history) => {
                 margin={"normal"}
           />
           <br/>
+
+
             <TextField 
                 type={"text"}
                 name={"cpf"}
@@ -108,15 +108,7 @@ const signUp = (form, clear, history) => {
                 margin={"normal"}
             />
           <br/>
-          <TextField 
-                    type={"text"}
-                    name={"cpf"}
-                    value={form.cpf}
-                    onChange={(event)=> onChange(event, mascara)}
-                    label="Cpf"
-                    required
-            />
-            <br/>
+      
           <TextField
                 placeholder = "Minimun of 6 characters"
                 name={"password"}

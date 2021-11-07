@@ -5,7 +5,7 @@ import GetAddress from './GetAddress'
 import saida from '../../assets/saida.png'
 import { BackButton, Header, Title} from './styled'
 import {useHistory} from "react-router-dom"
-import {goToRestaurante} from '../../routes/cordinator'
+import {goToHome} from '../../routes/cordinator'
 import Back from '../../assets/back.png'
 import useProtectedPage from '../../hooks/useProtectedPage'
 
@@ -16,7 +16,7 @@ const ProfilePage = () =>{
     return(
         <div>
             <Header>
-                <BackButton onClick={() => goToRestaurante(history)}>
+                <BackButton onClick={() => goToHome(history)}>
                     <img src = {Back}/>
                 </BackButton>
                 <Title> Profile</Title>

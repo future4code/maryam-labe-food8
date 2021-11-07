@@ -1,4 +1,5 @@
 import Card from '@material-ui/core/Card'
+import styled from "styled-components"
 import CardContent from '@material-ui/core/CardContent'
 import Fab from  "@material-ui/core/Fab"
 
@@ -77,3 +78,5 @@ export const ImgProfile = styled.img`
 width: 30px;
 height:30px;
 padding: 10px;
+`
+

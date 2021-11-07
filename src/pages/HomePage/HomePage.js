@@ -5,6 +5,7 @@ import {Header,BackButton, Title, Img, ButtonProfile, ImgProfile} from "./styled
 import {GlobalStateContext} from "../../Global/GlobalStateContext"
 import { useHistory } from "react-router";
 import axios from "axios";
+import useProtectedPage from '../../hooks/useProtectedPage'
 import HomePageCard from "../HomePage/HomePageCard"
 import {goToRestaurant, goToLogin, goToProfile} from "../../routes/cordinator"
 
@@ -81,6 +82,7 @@ const HomePage = () => {
             </div>
             {restaurantsCards}
 
+        </div>
         </div>
     )
 }

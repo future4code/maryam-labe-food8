@@ -128,7 +128,10 @@ const RegisterAddressPage = () =>{
       <ButtonContainer
         variant={'contained'}
         type={"submit"}
-        > Salve </ButtonContainer>
+
+        onClick={() => goToSearch(history)}
+        fullWidth> {isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>} </ButtonContainer>
+
 
       </form>
     </PageContainer>

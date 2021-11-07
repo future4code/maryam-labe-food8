@@ -2,7 +2,7 @@ import React from 'react'
 import CardActionArea from '@material-ui/core/CardActionArea'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
-import { CardContainerRestaurants, ListCardContent, TimeR } from './styled'
+import { CardContainerRestaurants, ListCardContent, TimeR} from './styled'
 
 
 const HomePageCard = (props) => {
