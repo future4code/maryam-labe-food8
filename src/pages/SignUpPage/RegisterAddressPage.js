@@ -12,7 +12,9 @@ import HeaderBack from "../../components/HeaderBack";
 const RegisterAddressPage = () =>
 {
   const [form, onChange, clear] = useForm({street: '', number: '', neighbourhood: '', city: '', state: '', complement: ''});
+  
   const history = useHistory()
+
   const registerAddress = (form, clear, history) =>{
     console.log(localStorage.getItem("token"))
     axios.put(`${BASE_URL}/address`, form, {
@@ -28,7 +30,7 @@ const RegisterAddressPage = () =>
     }
         const onSubmitForm = (event) => {
           event.preventDefault()
-          registerAddress()
+          registerAddress(form)
         }
       
  
