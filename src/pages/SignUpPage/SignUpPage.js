@@ -13,7 +13,7 @@ import InputMask from 'react-input-mask'
 import HeaderBack from "../../components/HeaderBack";
 
 const SignUpPage = () => {
-    const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: "", password: ""});
+    const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: ""});
     const history = useHistory ()
 
     const mascara = (valor) =>{
@@ -40,19 +40,15 @@ const SignUpPage = () => {
   }
 
 
-  const signUp = (form, clear, history) =>{
-    console.log(form)
-    console.log(localStorage.getItem("token"))
-    axios.put(`${BASE_URL}/signUp`, form, {
-        headers: {auth: localStorage.getItem("token")}})
-        .then((res)=>{
-            console.log(res)
-            clear()
-            goToRegisterAdress(history)
-        })
-        .catch((error)=>{
-            console.log(error.message)
-        })
+const signUp = (form, clear, history) => {
+  axios.post(`${BASE_URL}/signUp`, form)
+  .then((res) => {
+    console.log(res.data)
+    localStorage.setItem("token", res.data.token)
+    clear()
+    goToRegisterAdress(history)
+  })
+  .catch((err) => console.log(err))
 }
 
 
@@ -111,29 +107,11 @@ const SignUpPage = () => {
                 type={"Password"}
                 fullWidth
             />
-          <br/>
-            <TextField
-                placeholder = "Minimun of 6 characters"
-                name={"password"}
-                value = {form.password}
-                onChange = {onChange}
-                required
-                label={"confirm password"}
-                variant={"outlined"}
-                margin={"normal"}
-                type={"Password"}
-                fullWidth
-            />
+          
           <br/>
           <br/>
-            <ButtonContainer
-            color={'#5CB646'}
-            variant={'contained'}
-            type={"submit"}
-            margin={"normal"}
-            fullWidth
-            onClick={() => goToRegisterAdress(history)}
-            > Create Account </ButtonContainer>
+
+            <ButtonContainer type={"submit"} onClick={() => goToRegisterAdress(history)}> Create Account </ButtonContainer>
         </form>
       </PageContainer>
     );
