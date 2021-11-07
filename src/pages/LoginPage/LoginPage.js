@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import useForm from '../../hooks/useForm';
 import { useHistory } from "react-router-dom";
 import LogoFood from '../../assets/logo-future-eats.png'
@@ -7,22 +7,27 @@ import { TextField } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
 import { goToSignUp, goToHome } from "../../routes/cordinator";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage"
+import CircularProgress from "@material-ui/core/CircularProgress"
 
 const LoginPage = () => {
+  useUnprotectedPage()
     const [form, onChange, clear] = useForm({email:"", password: ""});
+    const [isLoading, setIsLoading]= useState(false)
 
     const history = useHistory()
   
   const onSubmitForm = (event) => {
     event.preventDefault()
     login(form, clear, history)
-    console.log(form)
   }
 
   const login = (form, clear, history) => {
+    setIsLoading(true)
     axios.post(`${BASE_URL}/login`, form)
     .then((res) => {
-      console.log(res.data)
+      setIsLoading(false)
+      // alert("Cadastro realizado com sucesso!")
       localStorage.setItem("token", res.data.token)
       clear()
       goToHome(history)
@@ -64,7 +69,9 @@ const LoginPage = () => {
           />
               <br/>
               <br/>
-          <ButtonContainer type={"submit"}> Entrar </ButtonContainer>
+
+          <ButtonContainer type={"submit"}> {isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Entrar</>} </ButtonContainer>
+
         </form>
         <Button
           type={"submit"}

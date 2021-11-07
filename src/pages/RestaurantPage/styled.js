@@ -5,7 +5,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 width: 372px;
-height: 54px;
+width: 100vw;
 margin: 0 0 7px;
 // margin-bottom: 2px;
 border: solid 1px #b8b8b8;
