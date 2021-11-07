@@ -1,26 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import useForm from '../../hooks/useForm'
 import {BASE_URL} from '../../constants/urls'
 import axios from 'axios'
-import {EditarCadastro, StyledButton, Input, Rectangle, ContainerButton} from './styled'
+import Back from '../../assets/back.png'
+import {goToProfile} from '../../routes/cordinator'
+import {useHistory} from "react-router-dom"
+import useProtectedPage from '../../hooks/useProtectedPage'
+import {EditarCadastro, StyledButton, Input, Rectangle, ContainerButton, Title, BackButton, Header} from './styled'
+import CircularProgress from "@material-ui/core/CircularProgress"
+
 
 const EditInfoPage = () =>{
-
-
-    const [form, onChange, clear] = useForm({name: '', email: '', cpf: ''})
-
+useProtectedPage()
+const history = useHistory()
+const [form, onChange, clear] = useForm({name: '', email: '', cpf: ''})
+const [isLoading, setIsLoading]= useState(false)
 
     const updateProfile = () =>{
-        console.log(form)
-        console.log(localStorage.getItem("token"))
+        setIsLoading(true)
         axios.put(`${BASE_URL}/profile`, form, {
             headers: {auth: localStorage.getItem("token")}})
             .then((res)=>{
-                console.log(res)
+                alert("Perfil atualizado com sucesso!")
                 clear()
+                setIsLoading(false)
             })
             .catch((error)=>{
-                console.log(error.message)
+                alert("Ocorreu um erro inesperado, tente novamente!")
             })
     }
 
@@ -49,6 +55,10 @@ const EditInfoPage = () =>{
 
     return (
         <EditarCadastro>
+        <Header>
+                <BackButton onClick={() => goToProfile(history)}> <img src = {Back}/></BackButton>
+                <Title> Edit Profile</Title>
+            </Header>
             <form onSubmit={onSubmitForm}>
                 <Rectangle>
                <Input
@@ -88,7 +98,7 @@ const EditInfoPage = () =>{
                 <ContainerButton>
                 <StyledButton 
                     type={"submit"}>
-                        Salvar
+                        {isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>}
                     </StyledButton>
                 </ContainerButton>
             </form>

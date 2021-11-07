@@ -5,8 +5,10 @@ import {Profiles, Img, PerfilContainer, InforEnd} from './styled'
 import {goToPerfil} from '../../routes/cordinator'
 import editor from '../../assets/editor.png'
 import {useHistory} from 'react-router-dom'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 const GetAddress = () =>{
+     useProtectedPage()
     const history = useHistory()
     const profile = useRequestData([], `${BASE_URL}/profile`)[0]
     

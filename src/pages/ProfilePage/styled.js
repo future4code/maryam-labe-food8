@@ -6,7 +6,7 @@ export const Header = styled.header`
 display: flex;
 align-items: center;
 justify-content: space-between;
-width: 372px;
+width: 100vw;
 height: 54px;
 margin: 0 0 7px;
 // margin-bottom: 2px;
@@ -55,18 +55,19 @@ export const HistricoDePedidos = styled.div`
     color: black;
 ` 
   export const PathCopy= styled.div`
-    width: 340px;
+    width: 310px;
     height: 1px;
-    margin: 8px 16px 16px;
+    margin: 0 16px 16px;
     border: solid 1px black;
   `
   export const HistoryCard = styled.div`
-   width: 328px;
+   width: 300px;
   height: 102px;
   margin: 7px 6px 0;
   padding: 16px;
   border-radius: 8px;
   border: solid 1px #b8b8b8;
+  margin-left: 20px;
   `
 
 export const Text = styled.div`
@@ -129,10 +130,13 @@ export const FontPrice = styled.div`
 // Estilização GetAddress
     
 export const Address = styled.div` 
-  width: 360px;
-  height: 76px;
-  margin: 16px 0;
-  padding: 16px;
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vW;
+  height: 100px;
+  padding-top: 10px;
+  margin-bottom: 40px;
   background-color: #eee;
 `
 
@@ -166,7 +170,7 @@ width: 328px;
 
 export const Img = styled.img`
   width: 24px;
-  height: 24px;
+  height: 20px;
   margin: 0px 0 10px 300px;
   object-fit: contain;
   cursor: pointer;
@@ -188,9 +192,13 @@ export const Profiles = styled.div`
   
 `
 export const PerfilContainer = styled.div` 
-  width: 360px;
-  height: 76px;
-  margin: 16px 0;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vW;
+  height: 100px;
+  padding-top: 10px;
+  margin-bottom: 15px;
+  margin-top:20px;
   background-color: #5cb646;
 `
