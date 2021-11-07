@@ -26,6 +26,7 @@ const RegisterAddressPage = () =>{
         .then((res)=>{
           setIsLoading(false)
             console.log(res)
+            localStorage.setItem("token", res.data.token)
             clear()
             goToSearch(history)
         })
@@ -35,7 +36,7 @@ const RegisterAddressPage = () =>{
     }
         const onSubmitForm = (event) => {
           event.preventDefault()
-          registerAddress(form)
+          registerAddress(form, clear, history)
         }
       
  
@@ -127,12 +128,7 @@ const RegisterAddressPage = () =>{
       <ButtonContainer
         variant={'contained'}
         type={"submit"}
-
-        onClick={() => goToSearch(history)}
-        fullWidth>{isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>} </ButtonContainer>
-
-        onClick={() => goToHome(history)}
-        fullWidth> Salve </ButtonContainer>
+        > Salve </ButtonContainer>
 
       </form>
     </PageContainer>

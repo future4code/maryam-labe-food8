@@ -15,8 +15,11 @@ import CircularProgress from "@material-ui/core/CircularProgress"
 
 
 const SignUpPage = () => {
+
+    const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: ""});
+
   useUnprotectedPage()
-    const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: "", password: ""});
+    
     const history = useHistory ()
 
     const [isLoading, setIsLoading]= useState(false)
@@ -46,27 +49,22 @@ const SignUpPage = () => {
   }
 
 
-  const signUp = (form, clear, history) =>{
-    setIsLoading(true)
-    console.log(form)
-    console.log(localStorage.getItem("token"))
-    axios.put(`${BASE_URL}/signUp`, form, {
-        headers: {auth: localStorage.getItem("token")}})
-        .then((res)=>{
-            console.log(res)
-            setIsLoading(false)
-            clear()
-            goToRegisterAdress(history)
-        })
-        .catch((error)=>{
-            console.log(error.response.data.message)
-        })
+
+const signUp = (form, clear, history) => {
+  setIsLoading(true)
+  axios.post(`${BASE_URL}/signUp`, form)
+  .then((res) => {
+    console.log(res.data)
+    localStorage.setItem("token", res.data.token)
+    clear()
+    goToRegisterAdress(history)
+  })
+  .catch((err) => console.log(err))
 }
 
 
     return (
       <PageContainer>
-        
         <HeaderBack />
         <Logo src ={LogoFood}/>
         <TextStyle> Cadastrar </TextStyle>
@@ -131,30 +129,10 @@ const SignUpPage = () => {
                 type={"Password"}
                 fullWidth
             />
-          <br/>
-            <TextField
-                placeholder = "Minimun of 6 characters"
-                name={"password"}
-                value = {form.password}
-                onChange = {onChange}
-                required
-                label={"confirm password"}
-                variant={"outlined"}
-                margin={"normal"}
-                type={"Password"}
-                fullWidth
-            />
+          
           <br/>
           <br/>
-            <ButtonContainer
-            color={'#5CB646'}
-            variant={'contained'}
-            type={"submit"}
-            margin={"normal"}
-            fullWidth
-            onClick={() => goToRegisterAdress(history)}
-            > Create Account </ButtonContainer>
-
+            <ButtonContainer type={"submit"} onClick={() => goToRegisterAdress(history)}> Create Account </ButtonContainer>
         </form>
       </PageContainer>
     );
