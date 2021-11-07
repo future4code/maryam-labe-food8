@@ -3,7 +3,6 @@ import useForm from '../../hooks/useForm'
 import {BASE_URL} from '../../constants/urls'
 import axios from 'axios'
 import Back from '../../assets/back.png'
-import {goToProfile} from '../../routes/cordinator'
 import {useHistory} from "react-router-dom"
 import useProtectedPage from '../../hooks/useProtectedPage'
 import {EditarCadastro,StyledButton, Rectangle, Input, ContainerButton, Header, BackButton, Title} from './styled'
@@ -11,7 +10,7 @@ import CircularProgress from "@material-ui/core/CircularProgress"
 import { ButtonContainer, PageContainer, TextStyle } from '../SignUpPage/styled'
 import HeaderBack from '../../components/HeaderBack'
 import { TextField } from '@material-ui/core'
-import { goToHome, goToProfile } from '../../routes/cordinator'
+import { goToHome, goToProfile} from '../../routes/cordinator'
 
 
 
@@ -118,12 +117,11 @@ const addAdress = () =>{
             <ContainerButton>
             <StyledButton
                 type={"submit"}>
-                   {isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>}
-                </StyledButton>
+                   {isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>}  </StyledButton>
             </ContainerButton>
 
         </form>
-      </PageContainer>
+      </EditarCadastro>
     )
 
 }

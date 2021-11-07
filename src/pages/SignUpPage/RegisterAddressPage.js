@@ -129,9 +129,6 @@ const RegisterAddressPage = () =>{
         onClick={() => goToSearch(history)}
         fullWidth>{isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>} </ButtonContainer>
 
-        onClick={() => goToHome(history)}
-        fullWidth> Salve </ButtonContainer>
-
       </form>
     </PageContainer>
     )

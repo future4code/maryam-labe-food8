@@ -211,12 +211,10 @@ const Button = styled.div`
     }
 `
 
-const CartPage = () =>
-
-{   
+const CartPage = () =>{   
     useProtectedPage()  
 
-{   const history= useHistory();    
+   const history= useHistory();    
     const [paymentMethod, setPaymentMethod] = useState("");
     const inCartPage=false;
     const handlePaymentChange = (event) => {

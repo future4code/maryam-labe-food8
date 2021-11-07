@@ -98,9 +98,9 @@ const SignUpPage = () => {
                     type={"text"}
                     name={"cpf"}
                     value={form.cpf}
-                    onChange={onChange}
+                    onChange={onChange} />
 
-          <TextField 
+          <Input
                     type={"text"}
                     name={"cpf"}
                     value={form.cpf}
