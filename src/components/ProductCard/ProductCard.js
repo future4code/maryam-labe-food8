@@ -1,4 +1,4 @@
-import { ButtonUnstyled } from '@mui/core';
+// import { ButtonUnstyled } from '@mui/core';
 import React from 'react';
 // import ProfilePage from './pages/ProfilePage/ProfilePage'
 // import RestaurantPage from '././pages/RestaurantPage/RestaurantPage'
@@ -25,15 +25,15 @@ const ProductCard = (props) =>{
 
     return(
         <ContainerDiv>
-            <ProductImage src ={Burguer}/>
+            <ProductImage src ={props.photoUrl}/>
                 <div>
                     <DivSize>
-                        <NameItem>Nome do Burguer</NameItem>
+                        <NameItem>{props.name}</NameItem>
                         <CountButtonStyle> 1 </CountButtonStyle>
                     </DivSize>
-                    <DescriptionItem>Descrição do item</DescriptionItem>
+                    <DescriptionItem>{props.description}</DescriptionItem>
                     <DivSize>
-                        <Price>Price</Price>
+                        <Price>R${props.price}</Price>
                         <CardButton/>
                     </DivSize>
                 </div>
