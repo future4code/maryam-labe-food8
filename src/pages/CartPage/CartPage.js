@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {goToSignUp} from "../../routes/cordinator"
 import { useHistory } from "react-router";
 import FooterMenu from "../../components/FooterMenu";
+import useProtectedPage from '../../hooks/useProtectedPage'
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 
@@ -211,6 +212,10 @@ const Button = styled.div`
 `
 
 const CartPage = () =>
+
+{   
+    useProtectedPage()  
+
 {   const history= useHistory();    
     const [paymentMethod, setPaymentMethod] = useState("");
     const inCartPage=false;
@@ -218,7 +223,7 @@ const CartPage = () =>
         setPaymentMethod(event.target.value);
         console.log(paymentMethod);
     };
-    
+
     return(
         <CartBox>
             <TitleBox>

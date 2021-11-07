@@ -2,12 +2,10 @@ import styled from "styled-components"
 import TextField from '@mui/material/TextField'
 
 export const EditarCadastro = styled.div`
-    width: 355px;
-    height: 640px;
-    padding: 0 30px 260px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100vW;
 `
 
 export const Input = styled(TextField)`
@@ -63,5 +61,38 @@ export const ContainerButton = styled.div`
     border-radius: 4px;
     background-color: #5cb646;
 `
-
- 
+export const Title = styled.h3`
+width: 84px;
+height: 19px;
+// font-family: Roboto;
+// margin-inline: auto;
+margin-right: 140px;
+font-family: unset;
+font-size: 18px;
+font-weight: normal;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: -0.39px;
+text-align: center;
+color: var(--black);
+`
+ export const Header = styled.header`
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 100vw;
+height: 54px;
+margin: 0 0 7px;
+// margin-bottom: 2px;
+border: solid 1px #b8b8b8;
+// font-family: Roboto;
+font-family: unset;
+`
+export const BackButton = styled.button`
+background-color: white;
+border: 0px white;
+cursor: pointer;
+// font-family: Roboto;
+font-family: unset;
+`

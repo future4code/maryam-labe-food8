@@ -7,6 +7,7 @@ import useRequestData from '../../hooks/useRequestData';
 import {BASE_URL} from '../../constants/urls';
 import { useHistory, useParams } from "react-router-dom";
 import { goBack } from '../../routes/cordinator'
+ import NewBurguer from '../../assets/burguer.png'
 
 
 const RestaurantPage = () =>{

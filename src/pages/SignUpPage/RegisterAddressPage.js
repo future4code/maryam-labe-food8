@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import useForm from '../../hooks/useForm';
 import Back from '../../assets/back.png'
 import { useHistory } from "react-router";
@@ -8,18 +8,23 @@ import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
 import { goToHome, goToSearch } from "../../routes/cordinator";
 import HeaderBack from "../../components/HeaderBack";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage"
+import CircularProgress from "@material-ui/core/CircularProgress"
 
-const RegisterAddressPage = () =>
-{
+const RegisterAddressPage = () =>{
+  useUnprotectedPage()
   const [form, onChange, clear] = useForm({street: '', number: '', neighbourhood: '', city: '', state: '', complement: ''});
   
   const history = useHistory()
 
+  const [isLoading, setIsLoading]= useState(false)
+
   const registerAddress = (form, clear, history) =>{
-    console.log(localStorage.getItem("token"))
+    setIsLoading(true)
     axios.put(`${BASE_URL}/address`, form, {
-        headers: {'auth': localStorage.getItem("token")}})
+        headers: {auth: localStorage.getItem("token")}})
         .then((res)=>{
+          setIsLoading(false)
             console.log(res)
             localStorage.setItem("token", res.data.token)
             clear()
@@ -123,7 +128,8 @@ const RegisterAddressPage = () =>
       <ButtonContainer
         variant={'contained'}
         type={"submit"}
-        fullWidth> Salve </ButtonContainer>
+        > Salve </ButtonContainer>
+
       </form>
     </PageContainer>
     )
