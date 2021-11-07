@@ -14,7 +14,9 @@ import CircularProgress from "@material-ui/core/CircularProgress"
 const RegisterAddressPage = () =>{
   useUnprotectedPage()
   const [form, onChange, clear] = useForm({street: '', number: '', neighbourhood: '', city: '', state: '', complement: ''});
+  
   const history = useHistory()
+
   const [isLoading, setIsLoading]= useState(false)
 
   const registerAddress = (form, clear, history) =>{
@@ -24,6 +26,7 @@ const RegisterAddressPage = () =>{
         .then((res)=>{
           setIsLoading(false)
             console.log(res)
+            localStorage.setItem("token", res.data.token)
             clear()
             goToSearch(history)
         })
@@ -33,7 +36,7 @@ const RegisterAddressPage = () =>{
     }
         const onSubmitForm = (event) => {
           event.preventDefault()
-          registerAddress()
+          registerAddress(form, clear, history)
         }
       
  
@@ -127,7 +130,8 @@ const RegisterAddressPage = () =>{
         type={"submit"}
 
         onClick={() => goToSearch(history)}
-        fullWidth>{isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>} </ButtonContainer>
+        fullWidth> {isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Salve</>} </ButtonContainer>
+
 
       </form>
     </PageContainer>

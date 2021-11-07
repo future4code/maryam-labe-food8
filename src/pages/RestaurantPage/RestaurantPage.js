@@ -15,11 +15,11 @@ const RestaurantPage = () =>{
     const history = useHistory()
     const params = useParams()
 
-    // const [restaurantInfo, setRestaurantInfo] = useState({})
-
     const restaurant = useRequestData([], `${BASE_URL}/restaurants/${params.id}`)[0]
     console.log(restaurant)
-    
+
+    const inCartPage =false;
+
 
 
     return(
@@ -36,30 +36,29 @@ const RestaurantPage = () =>{
             <div>
                 <Description>{restaurant.restaurant && restaurant.restaurant.category}</Description>
                 <Div>
-                    <Description>{restaurant.restaurant && restaurant.restaurant.deliveryTime} min</Description>
-                    <Description>R${restaurant.restaurant && restaurant.restaurant.shipping.toFixed(2)}</Description>
+                    <Description>{restaurant.restaurant && restaurant.restaurant.deliveryTime} - {restaurant.restaurant && restaurant.restaurant.deliveryTime + 10}  min</Description>
+                    <Description>Frete R${restaurant.restaurant && restaurant.restaurant.shipping.toFixed(2)}</Description>
                 </Div>
                 <P>{restaurant.restaurant && restaurant.restaurant.address}</P>
             </div>
             <br/>
 
 
-            <Category> Principais </Category>
-            {/* {restaurantInfo.restaurants &&
-            restaurantInfo.restaurants.map((restaurant, index) => {
-                return (
-                    index < 7 && <p key={restaurant.restaurant.name}>{restaurant.restaurant.name}</p>
-                );
-                })} */}
-            <ProductCard/>
-            <Category> Acompanhamentos </Category>
-            <ProductCard/>
-           
-       
+            <Category> Produtos </Category>
+            {restaurant.restaurant &&
+                restaurant.restaurant.products.map((product) => {
+                return <ProductCard inCartPage={inCartPage}
+                        name={product.name}
+                        description={product.description}
+                        price={product.price.toFixed(2)}
+                        photoUrl={product.photoUrl}
+                    />
+                    
+            })}
             
 
         </div>
-    )
+    );
 }
 
 export default RestaurantPage

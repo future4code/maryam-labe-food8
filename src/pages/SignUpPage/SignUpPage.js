@@ -15,8 +15,11 @@ import CircularProgress from "@material-ui/core/CircularProgress"
 
 
 const SignUpPage = () => {
+
+    const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: ""});
+
   useUnprotectedPage()
-    const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: "", password: ""});
+    
     const history = useHistory ()
 
     const [isLoading, setIsLoading]= useState(false)
@@ -42,34 +45,31 @@ const SignUpPage = () => {
 
   const onSubmitForm = (event) => {
     event.preventDefault()
-    signUp()
+    signUp(form, clear, history)
   }
-  const signUp = (form, clear, history) => {
-    setIsLoading(true)
-    axios.post(`${BASE_URL}/signUp`, form, {
 
-      headers: {auth: localStorage.setItem("token")
 
-    }})
-    .then((res)=>{
-      console.log(res)
-      setIsLoading(false)
 
-      clear()
-      goToRegisterAdress(history)
+const signUp = (form, clear, history) => {
+  setIsLoading(true)
+  axios.post(`${BASE_URL}/signUp`, form)
+  .then((res) => {
+    console.log(res.data)
+    localStorage.setItem("token", res.data.token)
+    clear()
+    goToRegisterAdress(history)
   })
-    .catch((err) => console.log(err.response.data.message))
-  }
+  .catch((err) => console.log(err))
+}
 
 
     return (
       <PageContainer>
-        
         <HeaderBack />
         <Logo src ={LogoFood}/>
         <TextStyle> Cadastrar </TextStyle>
         <form onSubmit={onSubmitForm}>
-        <Input
+          <TextField
                 placeholder = 'Name'
                 name={"name"}
                 value = {form.name}
@@ -81,7 +81,8 @@ const SignUpPage = () => {
                 margin={"normal"}
           />
           <br/>
-          <Input
+            <TextField
+
                 placeholder = 'email@email.com'
                 name={"email"}
                 value = {form.email}
@@ -94,22 +95,21 @@ const SignUpPage = () => {
           />
           <br/>
 
-          <Input
-                    type={"text"}
-                    name={"cpf"}
-                    value={form.cpf}
-                    onChange={onChange} />
 
-          <Input
-                    type={"text"}
-                    name={"cpf"}
-                    value={form.cpf}
-                    onChange={(event)=> onChange(event, mascara)}
-                    label="Cpf"
-                    required
+            <TextField 
+                type={"text"}
+                name={"cpf"}
+                value={form.cpf}
+                onChange={(event)=> onChange(event, mascara)}
+                label="Cpf"
+                required
+                variant={"outlined"}
+                fullWidth
+                margin={"normal"}
             />
-            <br/>
-          <Input
+          <br/>
+      
+          <TextField
                 placeholder = "Minimun of 6 characters"
                 name={"password"}
                 value = {form.password}
@@ -120,30 +120,11 @@ const SignUpPage = () => {
                 margin={"normal"}
                 type={"Password"}
                 fullWidth
-          />
-          <br/>
-            <Input
-                placeholder = "Minimun of 6 characters"
-                name={"password"}
-                value = {form.password}
-                onChange = {onChange}
-                required
-                label={"confirm password"}
-                variant={"outlined"}
-                margin={"normal"}
-                type={"Password"}
-                fullWidth
-          />
+            />
+          
           <br/>
           <br/>
-          <ButtonContainer
-          color={'#5CB646'}
-          variant={'contained'}
-          type={"submit"}
-          margin={"normal"}
-          fullWidth
-          onClick={() => goToRegisterAdress(history)}
-          > {isLoading? <CircularProgress color={'inherit'} size={24}/> : <>Create Account</>}  </ButtonContainer>
+            <ButtonContainer type={"submit"} onClick={() => goToRegisterAdress(history)}> Create Account </ButtonContainer>
         </form>
       </PageContainer>
     );
