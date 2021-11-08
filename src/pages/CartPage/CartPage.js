@@ -7,7 +7,6 @@ import useProtectedPage from '../../hooks/useProtectedPage'
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 
-
 const CartBox = styled.div`
 p{
 

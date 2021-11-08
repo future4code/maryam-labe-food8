@@ -6,11 +6,14 @@ import avatarImg from "../assets/avatar.png"
 import { goToCart, goToHome, goToProfile } from "../routes/cordinator"
 import { useHistory } from "react-router"
 
+
 const FooterBox = styled.div`
 width: 100vw;
 border-top: 1px solid black;
 height: 7vh;
 display: flex;
+
+
 `
 const FooterButton = styled.button`
 border:0px;
