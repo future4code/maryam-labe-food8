@@ -12,6 +12,7 @@ import { goToRegisterAdress } from "../../routes/cordinator";
 import HeaderBack from "../../components/HeaderBack";
 import useUnprotectedPage from "../../hooks/useUnprotectedPage"
 import CircularProgress from "@material-ui/core/CircularProgress"
+import TextField from '@material-ui/core/TextField'
 
 
 const SignUpPage = () => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import saida from '../../assets/saida.png'
 import perfil from '../../assets/perfil.png'
-import {Header,BackButton, Title, Img, ButtonProfile, ImgProfile} from "./styled"
+import {Header,BackButton, Img, ButtonProfile, ImgProfile} from "./styled"
 import {GlobalStateContext} from "../../Global/GlobalStateContext"
 import { useHistory } from "react-router";
 import axios from "axios";

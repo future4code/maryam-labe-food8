@@ -2,6 +2,7 @@ import Card from '@material-ui/core/Card'
 import styled from "styled-components"
 import CardContent from '@material-ui/core/CardContent'
 import TextField from '@mui/material/TextField'
+import Fab from "@material-ui/core/Fab"
 
 export const PageContainer = styled.div`
   display: flex;
@@ -47,13 +48,7 @@ export const TitleBox = styled.div`
     box-shadow: 0 0.5px 0 0 var(--black-25);
     background-color: #fff;
 `
-export const Title =styled.h1`
-    font-family: Roboto;
-    font-size: 16px;
-    text-align: center;
-    justify-content: center;
-    color: var(--black);
-`
+
 
 export const Input = styled(TextField)`
   width: 340px;
