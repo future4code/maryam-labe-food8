@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
-// import useProtectedPage from "../../hooks/useProtectedPage";
+import React, { useEffect, useState, useContext } from "react";
+import saida from '../../assets/saida.png'
+import perfil from '../../assets/perfil.png'
+import {Header,BackButton, Title, Img, ButtonProfile, ImgProfile} from "./styled"
+import {GlobalStateContext} from "../../Global/GlobalStateContext"
 import { useHistory } from "react-router";
 import axios from "axios";
+import useProtectedPage from '../../hooks/useProtectedPage'
 import HomePageCard from "../HomePage/HomePageCard"
-import {goToRestaurant} from "../../routes/cordinator"
+import {goToRestaurant, goToLogin, goToProfile} from "../../routes/cordinator"
 import FooterMenu from "../../components/FooterMenu";
 import styled from 'styled-components'
 import { TextField, Button } from "@material-ui/core";
@@ -57,9 +61,12 @@ const HomeContainer = styled.div`
 `
 
 const HomePage = () => {
-    // useProtectedPage()
+     useProtectedPage()
     const history = useHistory()
+    const {states, seters} = useContext(GlobalStateContext)
+   const token = localStorage.getItem("token")
     const [restaurants, setRestaurants] = useState ([])
+    const [search, setSearch] = useState("")
     const headers = {
                 headers:{auth: ('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkcyWGVVUjFlMXI1YUxmMzhDRmxNIiwibmFtZSI6Ikx1aWdpIiwiZW1haWwiOiJsdWlnaV9yaWJlaXJvQGxpdmUuY29tIiwiY3BmIjoiMTQ0LjI3OS45NjctNjAiLCJoYXNBZGRyZXNzIjp0cnVlLCJhZGRyZXNzIjoiUi4gUXVhdHJvLCA4NywgNzEgLSBWaWxhIE4uIENvbmNlacOnw6NvIiwiaWF0IjoxNjM2MDM2OTkxfQ.cBIwxNvV8RctZ1Cohs-iCvW8YulBeKM5KZBhQkeDMXI')}
         }
@@ -93,8 +100,21 @@ const HomePage = () => {
                 />
             )
         })
-        const [search, setSearch] = useState("")
 
+
+  const logout = () =>{
+    localStorage.removeItem("token")
+  }
+
+  const rightButtonAction = () =>{
+    if(token){
+      logout()
+      seters.setRightButtonText("")
+      goToLogin(history)
+    }else{
+      goToLogin(history)
+    }
+  }
     return(
         <HomeContainer>
 

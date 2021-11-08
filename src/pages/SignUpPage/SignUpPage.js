@@ -1,20 +1,28 @@
-import React from "react"
+import React, {useState} from "react"
 import useForm from '../../hooks/useForm';
 import { useHistory } from "react-router-dom";
 import LogoFood from '../../assets/logo-future-eats.png'
 import Back from '../../assets/back.png'
 import saida from '../../assets/saida.png'
-import {PageContainer, ButtonContainer, Logo, TextStyle, BackButton} from './styled'
-import { TextField, Button } from "@material-ui/core";
+import {PageContainer, ButtonContainer, Logo, TextStyle, BackButton, Input} from './styled'
+import { Button } from "@material-ui/core";
 import axios from 'axios';
 import { BASE_URL } from '../../constants/urls'
 import { goToRegisterAdress } from "../../routes/cordinator";
-import InputMask from 'react-input-mask'
 import HeaderBack from "../../components/HeaderBack";
+import useUnprotectedPage from "../../hooks/useUnprotectedPage"
+import CircularProgress from "@material-ui/core/CircularProgress"
+
 
 const SignUpPage = () => {
+
     const [form, onChange, clear] = useForm({name:"", email:"", cpf:"", password: ""});
+
+  useUnprotectedPage()
+    
     const history = useHistory ()
+
+    const [isLoading, setIsLoading]= useState(false)
 
     const mascara = (valor) =>{
   
@@ -34,13 +42,16 @@ const SignUpPage = () => {
      return valor
    }
 
+
   const onSubmitForm = (event) => {
     event.preventDefault()
     signUp(form, clear, history)
   }
 
 
+
 const signUp = (form, clear, history) => {
+  setIsLoading(true)
   axios.post(`${BASE_URL}/signUp`, form)
   .then((res) => {
     console.log(res.data)
@@ -54,7 +65,6 @@ const signUp = (form, clear, history) => {
 
     return (
       <PageContainer>
-        
         <HeaderBack />
         <Logo src ={LogoFood}/>
         <TextStyle> Cadastrar </TextStyle>
@@ -72,6 +82,7 @@ const signUp = (form, clear, history) => {
           />
           <br/>
             <TextField
+
                 placeholder = 'email@email.com'
                 name={"email"}
                 value = {form.email}
@@ -83,6 +94,8 @@ const signUp = (form, clear, history) => {
                 margin={"normal"}
           />
           <br/>
+
+
             <TextField 
                 type={"text"}
                 name={"cpf"}
@@ -95,7 +108,8 @@ const signUp = (form, clear, history) => {
                 margin={"normal"}
             />
           <br/>
-            <TextField
+      
+          <TextField
                 placeholder = "Minimun of 6 characters"
                 name={"password"}
                 value = {form.password}
@@ -110,7 +124,6 @@ const signUp = (form, clear, history) => {
           
           <br/>
           <br/>
-
             <ButtonContainer type={"submit"} onClick={() => goToRegisterAdress(history)}> Create Account </ButtonContainer>
         </form>
       </PageContainer>

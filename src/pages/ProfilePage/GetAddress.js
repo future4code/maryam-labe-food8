@@ -5,9 +5,11 @@ import {Address, EnderecoCad, InforEnd, Img} from'./styled'
 import {goToAddress} from '../../routes/cordinator'
 import editor from '../../assets/editor.png'
 import {useHistory} from 'react-router-dom'
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 const GetAddress = () =>{
     const history = useHistory()
+    useProtectedPage()
     const address = useRequestData([], `${BASE_URL}/profile/address`)[0]
 
     return (

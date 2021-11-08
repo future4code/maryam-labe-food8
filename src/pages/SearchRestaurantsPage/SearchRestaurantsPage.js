@@ -1,8 +1,9 @@
 import React from "react"
+import useProtectedPage from '../../hooks/useProtectedPage'
 
 
-const SearchRestaurantsPage = () =>
-{
+const SearchRestaurantsPage = () =>{
+    useProtectedPage()
     return(
         <div>
             SearchRestaurantsPage
