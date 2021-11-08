@@ -12,7 +12,9 @@ width: 100vw;
 border-top: 1px solid black;
 height: 7vh;
 display: flex;
-
+position: fixed !important;
+z-index: 3;
+bottom: 0px;
 
 `
 const FooterButton = styled.button`

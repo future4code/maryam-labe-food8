@@ -25,20 +25,6 @@ const TitleBox = styled.div`
     border-bottom: 1x solid gray;
     justify-content: center;
 `
-const Title = styled.h1`
-    font-family: Roboto-Regular;
-    font-size: 16px;
-    text-align: center;
-    justify-content: center;
-    color: var(--gray);
-    margin-top: 20px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: -0.39px;
-    
-`
 
 export const InputsContainer = styled.div`
   display: flex;
@@ -54,6 +40,37 @@ const HomeContainer = styled.div`
     p{
 
     }
+`
+
+
+export const Header = styled.header`
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 374px;
+height: 54px;
+margin: 0 0 7px;
+// margin-bottom: 2px;
+border: solid 1px #b8b8b8;
+// font-family: Roboto;
+font-family: unset;
+`
+export const Title = styled.h3`
+   width: 84px;
+   height: 19px;
+   font-family: Roboto;
+   margin-inline: auto;
+   margin-right: 140px;
+   font-family: unset;
+   font-size: 18px;
+   font-weight: normal;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: normal;
+   letter-spacing: -0.39px;
+   text-align: center;
+   color: var(--black);
+
 `
 
 const HomePage = () => {
@@ -98,9 +115,9 @@ const HomePage = () => {
     return(
         <HomeContainer>
 
-            <TitleBox>
+            <Header>
             <Title>FutureEats</Title>
-            </TitleBox>
+            </Header>
 
             <InputsContainer>
                 <TextField 
