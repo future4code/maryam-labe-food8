@@ -6,7 +6,6 @@ import FooterMenu from "../../components/FooterMenu";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 
-
 const CartBox = styled.div`
 p{
 

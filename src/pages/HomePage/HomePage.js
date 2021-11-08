@@ -4,6 +4,58 @@ import { useHistory } from "react-router";
 import axios from "axios";
 import HomePageCard from "../HomePage/HomePageCard"
 import {goToRestaurant} from "../../routes/cordinator"
+import FooterMenu from "../../components/FooterMenu";
+import styled from 'styled-components'
+import { TextField, Button } from "@material-ui/core";
+
+export const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vW;
+
+`
+const TitleBox = styled.div`
+    height: 6vh;
+    margin: 0 0 1px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0.5px 0 0 var(--black-25);
+    background-color: #fff;
+    border-bottom: 1x solid gray;
+    justify-content: center;
+`
+const Title = styled.h1`
+    font-family: Roboto-Regular;
+    font-size: 16px;
+    text-align: center;
+    justify-content: center;
+    color: var(--gray);
+    margin-top: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    
+`
+
+export const InputsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 88vw;
+  max-width: 450px;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 20px;
+`
+
+const HomeContainer = styled.div`
+    p{
+
+    }
+`
+
 const HomePage = () => {
     // useProtectedPage()
     const history = useHistory()
@@ -21,6 +73,7 @@ const HomePage = () => {
             console.log(err)
         })
     }
+
     useEffect(()=>{
         listRestaurant()
     }, [])
@@ -43,16 +96,26 @@ const HomePage = () => {
         const [search, setSearch] = useState("")
 
     return(
-        <div>
-            <div>
-                <input
+        <HomeContainer>
+
+            <TitleBox>
+            <Title>FutureEats</Title>
+            </TitleBox>
+
+            <InputsContainer>
+                <TextField 
                 placeholder="Restaurante"
                 type="text"
+                variant={"outlined"}
+                fullWidth
+                margin={"normal"}
                 // value={null}
                 onChange={(e)=> setSearch((e.target.value))}/>
-            </div>
+            </InputsContainer>
+
             {restaurantsCards}
-        </div>
+            <FooterMenu />
+        </HomeContainer>
     )
 }
 export default HomePage
